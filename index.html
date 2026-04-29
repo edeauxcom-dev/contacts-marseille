@@ -28,32 +28,37 @@ a:hover{text-decoration:underline}
 .btn-print{display:inline-flex;align-items:center;gap:.45rem;background:#fff;color:var(--blue);font-weight:700;font-size:.83rem;padding:.55rem 1.1rem;border-radius:30px;border:none;cursor:pointer;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.18);position:relative;z-index:2;font-family:'Segoe UI',Arial,sans-serif}
 
 .intro{background:var(--blue-lt);border-left:5px solid var(--blue);padding:.9rem 1.8rem;margin:1.4rem 1.4rem 0;border-radius:0 var(--r-s) var(--r-s) 0;font-size:.9rem;color:var(--txt-md)}
-
 .sec{display:flex;align-items:center;gap:.7rem;padding:0 1.4rem;margin:2rem 0 .9rem}
 .sec-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
 .sec h2{font-size:1.05rem;font-weight:700;color:var(--txt-dk)}
 .badge{margin-left:auto;background:var(--grey-bd);color:var(--txt-lt);font-size:.72rem;font-weight:700;padding:.18rem .6rem;border-radius:20px}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;padding:0 1.4rem}
-
 .card{background:#fff;border:1px solid var(--grey-bd);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
 .card:hover{box-shadow:var(--sh-h);transform:translateY(-3px)}
 .card-top{padding:1.1rem 1.2rem .8rem;border-bottom:1px solid var(--grey-bd);display:flex;align-items:flex-start;gap:.85rem}
-.logo-badge{width:56px;height:50px;border-radius:var(--r-s);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;font-size:.7rem;color:#fff;text-align:center;line-height:1.2;letter-spacing:-.3px}
+
+/* Icônes SVG dans les cards */
+.logo-icon{width:54px;height:48px;border-radius:var(--r-s);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-icon svg{width:32px;height:32px}
+
 .title-block h3{font-size:.9rem;font-weight:700;color:var(--txt-dk);line-height:1.3;margin-bottom:.2rem}
 .tag{font-size:.67rem;font-weight:700;padding:.13rem .5rem;border-radius:20px;display:inline-block;text-transform:uppercase;letter-spacing:.03em}
 .te{background:#e3f2fd;color:#0d47a1}.ts{background:#e8f5e9;color:#1b5e20}
 .th{background:#fce4ec;color:#880e4f}.tp{background:#f3e5f5;color:#4a148c}.tm{background:#fff3e0;color:#e65100}
+
 .card-body{padding:.8rem 1.2rem;display:flex;flex-direction:column;gap:.38rem;flex:1}
 .row{display:flex;align-items:flex-start;gap:.5rem;font-size:.8rem;color:var(--txt-md);line-height:1.45}
 .ri{flex-shrink:0;margin-top:1px}
 .row a{color:var(--blue);font-weight:600;word-break:break-all}
 .row strong{color:var(--txt-dk);font-weight:600;font-size:.76rem}
 .card-foot{padding:.6rem 1.2rem;border-top:1px solid var(--grey-bd);background:var(--grey-bg)}
-.map-btn{display:inline-flex;align-items:center;gap:.3rem;background:var(--blue);color:#fff;font-size:.73rem;font-weight:700;padding:.3rem .85rem;border-radius:20px;text-decoration:none;border:none;cursor:pointer;font-family:'Segoe UI',Arial,sans-serif}
-.map-btn:hover{background:var(--blue-dk);color:#fff;text-decoration:none}
+.map-btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--blue);color:#fff;font-size:.73rem;font-weight:700;padding:.3rem .85rem;border-radius:20px;border:none;cursor:pointer;font-family:'Segoe UI',Arial,sans-serif;transition:background .15s}
+.map-btn:hover{background:var(--blue-dk);color:#fff}
+.map-btn svg{width:13px;height:13px;flex-shrink:0}
 
 .sie{background:#e3f2fd}.sis{background:#e8f5e9}.sih{background:#fce4ec}.sip{background:#f3e5f5}.sim{background:#fff3e0}
+.c-e{color:#0d47a1}.c-s{color:#1b5e20}.c-h{color:#880e4f}.c-p{color:#4a148c}.c-m{color:#e65100}
 
 .mds-wrap{margin:0 1.4rem;background:#fff;border:1px solid var(--grey-bd);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
 .mds-info{display:flex;gap:.7rem;align-items:flex-start;padding:.9rem 1.3rem;background:var(--blue-lt);border-bottom:1px solid var(--grey-bd);font-size:.83rem;color:var(--txt-md)}
@@ -66,43 +71,34 @@ tbody tr:hover{background:var(--blue-lt)}
 tbody td{padding:.5rem .9rem;font-size:.79rem;color:var(--txt-md);vertical-align:middle}
 tbody td:first-child{font-weight:700;color:var(--txt-dk)}
 .t-btn{display:inline-flex;align-items:center;gap:.25rem;background:var(--blue);color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;border:none;cursor:pointer;font-family:'Segoe UI',Arial,sans-serif}
-.t-btn:hover{background:var(--blue-dk);color:#fff}
+.t-btn:hover{background:var(--blue-dk)}
 
-/* CARTE SVG interactive */
+/* CARTE */
 .map-sec{margin:2rem 1.4rem 0;border-radius:var(--r);overflow:hidden;border:1px solid var(--grey-bd);box-shadow:var(--sh)}
-.map-hdr{background:linear-gradient(135deg,var(--blue),var(--blue-dk));padding:.9rem 1.4rem}
-.map-hdr h2{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:.15rem}
+.map-hdr{background:linear-gradient(135deg,var(--blue),var(--blue-dk));padding:.9rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.map-hdr h2{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:.1rem}
 .map-hdr p{color:rgba(255,255,255,.72);font-size:.78rem}
+.map-controls{display:flex;gap:.5rem;flex-shrink:0}
+.map-ctrl-btn{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:1rem;font-weight:700;width:32px;height:32px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s;font-family:monospace}
+.map-ctrl-btn:hover{background:rgba(255,255,255,.35)}
 .map-legend{background:#fff;padding:.6rem 1.2rem;display:flex;flex-wrap:wrap;gap:.75rem;border-bottom:1px solid var(--grey-bd)}
 .leg{display:flex;align-items:center;gap:.35rem;font-size:.74rem;color:var(--txt-md);font-weight:600}
 .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
 
-.map-wrap{position:relative;background:#d4e8f5;overflow:hidden;user-select:none}
-.map-wrap svg.map-svg{width:100%;height:auto;display:block}
-.marker path{transition:filter .15s}
-.marker:hover path{filter:brightness(1.2) drop-shadow(0 2px 4px rgba(0,0,0,.4))}
-.marker.active path{filter:brightness(1.3) drop-shadow(0 3px 8px rgba(0,0,0,.5))}
+.map-outer{overflow:hidden;position:relative;background:#cfe6f7;height:500px;cursor:grab}
+.map-outer:active{cursor:grabbing}
+.map-inner{position:absolute;top:0;left:0;transform-origin:0 0;will-change:transform}
+.map-inner svg{display:block}
 
-/* Popup */
-.map-popup{
-  position:absolute;
-  background:#fff;
-  border-radius:10px;
-  box-shadow:0 8px 30px rgba(0,0,0,.2);
-  padding:0;
-  min-width:220px;
-  max-width:280px;
-  pointer-events:auto;
-  z-index:100;
-  display:none;
-  border:1px solid var(--grey-bd);
-  overflow:hidden;
-}
-.popup-head{padding:.6rem .9rem;font-weight:700;font-size:.85rem;color:#fff;line-height:1.3}
-.popup-body{padding:.65rem .9rem;font-size:.78rem;color:var(--txt-md);display:flex;flex-direction:column;gap:.3rem;line-height:1.45}
-.popup-body a{color:var(--blue);font-weight:600}
-.popup-close{position:absolute;top:.4rem;right:.5rem;background:rgba(255,255,255,.25);border:none;color:#fff;font-size:.9rem;cursor:pointer;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;line-height:1;font-weight:700}
+.mkr path{transition:filter .12s}
+.mkr:hover path,.mkr.active path{filter:brightness(1.25) drop-shadow(0 2px 6px rgba(0,0,0,.45))}
+
+.map-popup{position:fixed;background:#fff;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.22);min-width:230px;max-width:290px;z-index:9999;display:none;border:1px solid var(--grey-bd);overflow:hidden;pointer-events:auto}
+.popup-head{padding:.65rem 2rem .65rem .9rem;font-weight:700;font-size:.85rem;color:#fff;line-height:1.3;position:relative}
+.popup-close{position:absolute;top:.4rem;right:.5rem;background:rgba(255,255,255,.25);border:none;color:#fff;font-size:.85rem;cursor:pointer;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-weight:800;line-height:1}
 .popup-close:hover{background:rgba(255,255,255,.4)}
+.popup-body{padding:.7rem .9rem;font-size:.79rem;color:var(--txt-md);display:flex;flex-direction:column;gap:.32rem;line-height:1.5}
+.popup-body a{color:var(--blue);font-weight:600}
 
 .footer{text-align:center;padding:1.3rem;font-size:.75rem;color:var(--txt-lt);margin-top:2rem;border-top:1px solid var(--grey-bd)}
 
@@ -119,6 +115,7 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
   .hdr-title h1{font-size:1.05rem}
   .grid{grid-template-columns:1fr;padding:0 1rem}
   .sec,.intro,.mds-wrap,.map-sec{margin-left:1rem;margin-right:1rem}
+  .map-outer{height:360px}
 }
 </style>
 </head>
@@ -131,23 +128,31 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
     <h1>📍 Contacts utiles à Marseille</h1>
     <p>Interlocuteurs officiels pour les apprentis (18 ans et +)</p>
   </div>
-  <button class="btn-print" onclick="window.print()">🖨️ Imprimer / PDF</button>
+  <button class="btn-print" onclick="window.print()">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    Imprimer / PDF
+  </button>
 </header>
 
 <div class="intro">
-  💡 Vous trouverez ci-dessous les organismes officiels présents à Marseille pour vous accompagner dans votre vie d'apprenti : emploi, démarches sociales, santé, soutien psychologique. Cliquez sur <strong>« 📍 Localiser »</strong> sur chaque carte pour afficher la structure sur la carte interactive.
+  💡 Vous trouverez ci-dessous les organismes officiels présents à Marseille pour vous accompagner dans votre vie d'apprenti : emploi, démarches sociales, santé, soutien psychologique. Cliquez sur <strong>« Localiser »</strong> pour afficher la structure sur la carte interactive.
 </div>
 
 <!-- EMPLOI -->
 <div class="sec">
-  <div class="sec-icon sie">💼</div>
+  <div class="sec-icon sie">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d47a1" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+  </div>
   <h2>Emploi, formation &amp; France Travail</h2>
   <span class="badge">2 structures</span>
 </div>
 <div class="grid">
+
   <div class="card">
     <div class="card-top">
-      <div class="logo-badge" style="background:#0d47a1">Mission<br>Locale</div>
+      <div class="logo-icon sie">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0d47a1" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
       <div class="title-block"><h3>Mission Locale de Marseille</h3><span class="tag te">Emploi &amp; insertion</span></div>
     </div>
     <div class="card-body">
@@ -156,11 +161,19 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
       <div class="row"><span class="ri">✉️</span><span><a href="mailto:siege@mlmarseille.org">siege@mlmarseille.org</a></span></div>
       <div class="row"><span class="ri">🌐</span><span><a href="https://missionlocalemarseille.fr" target="_blank" rel="noopener">missionlocalemarseille.fr</a></span></div>
     </div>
-    <div class="card-foot"><button class="map-btn" onclick="flyTo(0)">📍 Localiser sur la carte</button></div>
+    <div class="card-foot">
+      <button class="map-btn" onclick="flyTo(0)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Localiser sur la carte
+      </button>
+    </div>
   </div>
+
   <div class="card">
     <div class="card-top">
-      <div class="logo-badge" style="background:#003189">France<br>Travail</div>
+      <div class="logo-icon sie">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0d47a1" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
       <div class="title-block"><h3>France Travail – Porte d'Aix</h3><span class="tag te">Emploi &amp; formation</span></div>
     </div>
     <div class="card-body">
@@ -168,20 +181,31 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
       <div class="row"><span class="ri">📞</span><span><a href="tel:3949">3949</a> (numéro national)</span></div>
       <div class="row"><span class="ri">🌐</span><span><a href="https://www.francetravail.fr" target="_blank" rel="noopener">francetravail.fr</a></span></div>
     </div>
-    <div class="card-foot"><button class="map-btn" onclick="flyTo(1)">📍 Localiser sur la carte</button></div>
+    <div class="card-foot">
+      <button class="map-btn" onclick="flyTo(1)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Localiser sur la carte
+      </button>
+    </div>
   </div>
+
 </div>
 
 <!-- AIDE SOCIALE -->
 <div class="sec">
-  <div class="sec-icon sis">🤝</div>
+  <div class="sec-icon sis">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+  </div>
   <h2>Aide sociale et financière</h2>
   <span class="badge">2 structures</span>
 </div>
 <div class="grid">
+
   <div class="card">
     <div class="card-top">
-      <div class="logo-badge" style="background:#1b5e20">CCAS</div>
+      <div class="logo-icon sis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
       <div class="title-block"><h3>CCAS de Marseille</h3><span class="tag ts">Action sociale</span></div>
     </div>
     <div class="card-body">
@@ -191,11 +215,14 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
       <div class="row"><span class="ri">🌐</span><span><a href="https://ccas-marseille.fr" target="_blank" rel="noopener">ccas-marseille.fr</a></span></div>
       <div class="row"><span class="ri">🏢</span><span><strong>Agences :</strong> Rue de l'Évêché (13002), Bd de la Fédération (13004), Rue Borde (13008), Bd D. Casanova (13014)</span></div>
     </div>
-    <div class="card-foot"><button class="map-btn" onclick="flyTo(2)">📍 Localiser sur la carte</button></div>
+    <div class="card-foot"><button class="map-btn" onclick="flyTo(2)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Localiser sur la carte</button></div>
   </div>
+
   <div class="card">
     <div class="card-top">
-      <div class="logo-badge" style="background:#005f9e">CAF</div>
+      <div class="logo-icon sis">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1b5e20" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
       <div class="title-block"><h3>CAF des Bouches-du-Rhône</h3><span class="tag ts">Prestations familiales</span></div>
     </div>
     <div class="card-body">
@@ -204,20 +231,26 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
       <div class="row"><span class="ri">📍</span><span><strong>Marseille Sud :</strong> 215 chemin de Gibbes, 13014</span></div>
       <div class="row"><span class="ri">📍</span><span><strong>Marseille 9e :</strong> 1 av. Desautel, 13009</span></div>
     </div>
-    <div class="card-foot"><button class="map-btn" onclick="flyTo(3)">📍 Localiser sur la carte</button></div>
+    <div class="card-foot"><button class="map-btn" onclick="flyTo(3)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Localiser sur la carte</button></div>
   </div>
+
 </div>
 
 <!-- SANTE -->
 <div class="sec">
-  <div class="sec-icon sih">🏥</div>
+  <div class="sec-icon sih">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#880e4f" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+  </div>
   <h2>Santé, psychologie &amp; addictions</h2>
   <span class="badge">3 structures</span>
 </div>
 <div class="grid">
+
   <div class="card">
     <div class="card-top">
-      <div class="logo-badge" style="background:#c62828">PF 13</div>
+      <div class="logo-icon sih">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#880e4f" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </div>
       <div class="title-block"><h3>Planning Familial 13</h3><span class="tag th">Santé sexuelle &amp; droits</span></div>
     </div>
     <div class="card-body">
@@ -226,11 +259,14 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
       <div class="row"><span class="ri">✉️</span><span><a href="mailto:info@leplanning13.org">info@leplanning13.org</a></span></div>
       <div class="row"><span class="ri">🌐</span><span><a href="https://leplanning13.org/permanence/marseille/" target="_blank" rel="noopener">leplanning13.org</a></span></div>
     </div>
-    <div class="card-foot"><button class="map-btn" onclick="flyTo(4)">📍 Localiser sur la carte</button></div>
+    <div class="card-foot"><button class="map-btn" onclick="flyTo(4)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Localiser sur la carte</button></div>
   </div>
+
   <div class="card">
     <div class="card-top">
-      <div class="logo-badge" style="background:#880e4f">Add.<br>France</div>
+      <div class="logo-icon sih">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#880e4f" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
       <div class="title-block"><h3>CSAPA – Addictions France</h3><span class="tag th">Addictions</span></div>
     </div>
     <div class="card-body">
@@ -239,11 +275,14 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
       <div class="row"><span class="ri">✉️</span><span><a href="mailto:csapa.notredame@addictions-france.org">csapa.notredame@addictions-france.org</a></span></div>
       <div class="row"><span class="ri">🌐</span><span><a href="https://addictions-france.org/etablissements/csapa-de-marseille/" target="_blank" rel="noopener">addictions-france.org</a></span></div>
     </div>
-    <div class="card-foot"><button class="map-btn" onclick="flyTo(5)">📍 Localiser sur la carte</button></div>
+    <div class="card-foot"><button class="map-btn" onclick="flyTo(5)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Localiser sur la carte</button></div>
   </div>
+
   <div class="card">
     <div class="card-top">
-      <div class="logo-badge" style="background:#1565c0">Add.<br>Méd.</div>
+      <div class="logo-icon sih">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#880e4f" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
       <div class="title-block"><h3>Addiction Méditerranée</h3><span class="tag th">Addictions &amp; prévention</span></div>
     </div>
     <div class="card-body">
@@ -253,20 +292,25 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
       <div class="row"><span class="ri">📍</span><span><strong>Le Sémaphore :</strong> 04 91 91 50 52 – 6 rue de Provence, 13004</span></div>
       <div class="row"><span class="ri">📍</span><span><strong>JAM :</strong> 04 91 91 00 65 – 7 sq. Stalingrad, 13001</span></div>
     </div>
-    <div class="card-foot"><button class="map-btn" onclick="flyTo(6)">📍 Localiser sur la carte</button></div>
+    <div class="card-foot"><button class="map-btn" onclick="flyTo(6)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Localiser sur la carte</button></div>
   </div>
+
 </div>
 
 <!-- PSY -->
 <div class="sec">
-  <div class="sec-icon sip">🧠</div>
+  <div class="sec-icon sip">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a148c" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+  </div>
   <h2>Soutien psychologique</h2>
   <span class="badge">1 structure</span>
 </div>
 <div class="grid">
   <div class="card">
     <div class="card-top">
-      <div class="logo-badge" style="background:#4a148c">UNA<br>FAM</div>
+      <div class="logo-icon sip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4a148c" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </div>
       <div class="title-block"><h3>UNAFAM 13</h3><span class="tag tp">Soutien psychique</span></div>
     </div>
     <div class="card-body">
@@ -275,13 +319,15 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
       <div class="row"><span class="ri">✉️</span><span><a href="mailto:13@unafam.org">13@unafam.org</a></span></div>
       <div class="row"><span class="ri">🌐</span><span><a href="https://www.unafam.org" target="_blank" rel="noopener">unafam.org</a></span></div>
     </div>
-    <div class="card-foot"><button class="map-btn" onclick="flyTo(7)">📍 Localiser sur la carte</button></div>
+    <div class="card-foot"><button class="map-btn" onclick="flyTo(7)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Localiser sur la carte</button></div>
   </div>
 </div>
 
 <!-- MDS -->
 <div class="sec">
-  <div class="sec-icon sim">🏘️</div>
+  <div class="sec-icon sim">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e65100" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+  </div>
   <h2>Maisons Départementales de la Solidarité (MDS)</h2>
   <span class="badge">12 antennes</span>
 </div>
@@ -306,11 +352,18 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
   </table>
 </div>
 
-<!-- CARTE SVG INTERACTIVE -->
+<!-- CARTE SVG INTERACTIVE ZOOMABLE -->
 <div class="map-sec">
   <div class="map-hdr">
-    <h2>🗺️ Carte interactive – tous les points d'accompagnement</h2>
-    <p>Cliquez sur un marqueur pour afficher les informations. Utilisez les boutons « Localiser » sur chaque carte.</p>
+    <div>
+      <h2>🗺️ Carte interactive – points d'accompagnement</h2>
+      <p>Clic sur un marqueur pour les infos · Molette ou boutons +/− pour zoomer · Glisser pour naviguer</p>
+    </div>
+    <div class="map-controls">
+      <button class="map-ctrl-btn" onclick="zoomMap(1.3)" title="Zoom +">+</button>
+      <button class="map-ctrl-btn" onclick="zoomMap(0.77)" title="Zoom −">−</button>
+      <button class="map-ctrl-btn" onclick="resetMap()" title="Réinitialiser" style="font-size:.7rem;width:auto;padding:0 8px">⟲ Reset</button>
+    </div>
   </div>
   <div class="map-legend">
     <span class="leg"><span class="dot" style="background:#0d47a1"></span>Emploi &amp; formation</span>
@@ -319,123 +372,146 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
     <span class="leg"><span class="dot" style="background:#4a148c"></span>Soutien psychologique</span>
     <span class="leg"><span class="dot" style="background:#e65100"></span>MDS</span>
   </div>
-  <div class="map-wrap" id="mapWrap">
-    <svg class="map-svg" viewBox="0 0 860 540" xmlns="http://www.w3.org/2000/svg" id="mapSvg">
-      <!-- Fond -->
-      <rect width="860" height="540" fill="#cfe0f0"/>
-      <!-- Terre (forme simplifiée de la région marseillaise) -->
-      <path d="M0,0 L860,0 L860,540 L0,540 Z" fill="#e8ede3"/>
-      <!-- Mer au sud -->
-      <path d="M0,430 Q150,400 280,410 Q380,418 430,405 Q500,390 560,400 Q650,415 860,395 L860,540 L0,540 Z" fill="#a8c8e8"/>
-      <!-- Vieux-Port -->
-      <ellipse cx="390" cy="340" rx="22" ry="12" fill="#7aaed4" opacity="0.8"/>
-      <text x="395" y="358" font-family="Segoe UI,Arial" font-size="9" fill="#445" text-anchor="middle">Vieux-Port</text>
-      <!-- Axes routiers principaux -->
-      <line x1="0" y1="250" x2="860" y2="250" stroke="#c8bfa0" stroke-width="2.5" opacity="0.5"/>
-      <line x1="390" y1="0" x2="390" y2="540" stroke="#c8bfa0" stroke-width="2" opacity="0.4"/>
-      <line x1="0" y1="350" x2="860" y2="350" stroke="#c8bfa0" stroke-width="1.5" opacity="0.35"/>
-      <line x1="200" y1="0" x2="200" y2="540" stroke="#c8bfa0" stroke-width="1.5" opacity="0.3"/>
-      <!-- Label ville -->
-      <text x="370" y="328" font-family="Segoe UI,Arial" font-size="13" fill="#334" font-weight="700" text-anchor="middle">Marseille</text>
-      <!-- Marqueurs -->
-      
-  <g class="marker" data-id="0" transform="translate(483,326)" onclick="showPopup(0)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#0d47a1" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <div class="map-outer" id="mapOuter">
+    <div class="map-inner" id="mapInner">
+      <svg width="900" height="580" viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" id="mapSvg">
+<rect width="900" height="580" fill="#cfe6f7"/>
+<polygon points="0.0,580.0 0.0,0.0 900.0,0.0 900.0,269.3 825.0,352.1 850.0,426.7 775.0,476.4 750.0,526.1 675.0,559.3 600.0,580.0 0.0,580.0" fill="#eae6dc" stroke="none" stroke-width="1"/>
+<polygon points="300.0,580.0 375.0,538.6 450.0,526.1 525.0,542.7 600.0,580.0 300.0,580.0" fill="#cfe6f7"/>
+<polygon points="560.0,484.7 560.0,468.1 600.0,468.1 600.0,484.7" fill="#b8d9a0" stroke="#90b878" stroke-width="0.5"/>
+<polygon points="525.0,314.9 525.0,302.4 550.0,302.4 550.0,314.9" fill="#b8d9a0" stroke="#90b878" stroke-width="0.5"/>
+<rect x="75.0" y="145.0" width="275.0" height="103.6" fill="#b0d4e8" stroke="#7aadcc" stroke-width="1"/>
+<text x="210.0" y="194.7" font-family="Segoe UI,Arial" font-size="8" fill="#336699" text-anchor="middle">Grand Port</text>
+<ellipse cx="425.0" cy="329.4" rx="16" ry="9" fill="#9ec8e8" stroke="#7aadcc" stroke-width="1"/>
+<text x="425.0" y="337.6" font-family="Segoe UI,Arial" font-size="8.5" fill="#4477aa" text-anchor="middle" font-style="italic">Vieux-Port</text>
+<polyline points="200.0,0.0 210.0,82.9 225.0,165.7 240.0,248.6 265.0,310.7 290.0,352.1 315.0,393.6 350.0,435.0 400.0,484.7 440.0,526.1" fill="none" stroke="#d4a84b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="0.0,145.0 75.0,153.3 150.0,174.0 210.0,207.1" fill="none" stroke="#d4a84b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="700.0,393.6 640.0,381.1 575.0,368.7 525.0,360.4 475.0,352.1 425.0,343.9 375.0,339.7 315.0,339.7" fill="none" stroke="#d4a84b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="575.0,227.9 560.0,269.3 550.0,310.7 550.0,352.1 560.0,393.6 575.0,435.0 590.0,468.1" fill="none" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="475.0,327.3 500.0,323.1 540.0,323.1 575.0,327.3 625.0,331.4 660.0,335.6" fill="none" stroke="#c4956a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="490.0,319.0 480.0,302.4 470.0,285.9 465.0,269.3" fill="none" stroke="#c4956a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="490.0,339.7 500.0,352.1 510.0,364.6 530.0,377.0" fill="none" stroke="#c4956a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="510.0,343.9 510.0,385.3 520.0,426.7 540.0,468.1" fill="none" stroke="#c4956a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="575.0,339.7 650.0,331.4 725.0,319.0 800.0,310.7" fill="none" stroke="#c4956a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="400.0,476.4 450.0,509.6 510.0,534.4 575.0,546.9" fill="none" stroke="#b8b09a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="600.0,339.7 615.0,327.3 625.0,310.7" fill="none" stroke="#b8b09a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="575.0,464.0 600.0,493.0 625.0,505.4" fill="none" stroke="#ccc5b5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="675.0,331.4 725.0,339.7 790.0,343.9" fill="none" stroke="#ccc5b5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="300.0,145.0 325.0,124.3 340.0,103.6 360.0,82.9" fill="none" stroke="#ccc5b5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+<polyline points="425.0,319.0 440.0,302.4 460.0,290.0 475.0,281.7" fill="none" stroke="#c4956a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<text x="450.0" y="323.1" font-family="Segoe UI,Arial" font-size="9" fill="#556" text-anchor="middle" font-weight="bold" opacity="0.85">1er/2e</text>
+<text x="490.0" y="285.9" font-family="Segoe UI,Arial" font-size="8.5" fill="#667" text-anchor="middle" font-weight="normal" opacity="0.85">3e</text>
+<text x="565.0" y="302.4" font-family="Segoe UI,Arial" font-size="8.5" fill="#667" text-anchor="middle" font-weight="normal" opacity="0.85">4e</text>
+<text x="540.0" y="372.9" font-family="Segoe UI,Arial" font-size="8.5" fill="#667" text-anchor="middle" font-weight="normal" opacity="0.85">6e</text>
+<text x="575.0" y="435.0" font-family="Segoe UI,Arial" font-size="8.5" fill="#667" text-anchor="middle" font-weight="normal" opacity="0.85">8e</text>
+<text x="425.0" y="269.3" font-family="Segoe UI,Arial" font-size="8.5" fill="#667" text-anchor="middle" font-weight="normal" opacity="0.85">2e</text>
+<text x="290.0" y="207.1" font-family="Segoe UI,Arial" font-size="8" fill="#778" text-anchor="middle" font-weight="normal" opacity="0.85">3e N.</text>
+<text x="675.0" y="310.7" font-family="Segoe UI,Arial" font-size="8.5" fill="#667" text-anchor="middle" font-weight="normal" opacity="0.85">10e</text>
+<text x="760.0" y="339.7" font-family="Segoe UI,Arial" font-size="8.5" fill="#667" text-anchor="middle" font-weight="normal" opacity="0.85">11e</text>
+<text x="575.0" y="186.4" font-family="Segoe UI,Arial" font-size="8.5" fill="#667" text-anchor="middle" font-weight="normal" opacity="0.85">13e</text>
+<text x="440.0" y="124.3" font-family="Segoe UI,Arial" font-size="8.5" fill="#667" text-anchor="middle" font-weight="normal" opacity="0.85">15e</text>
+<text x="550.0" y="497.1" font-family="Segoe UI,Arial" font-size="8.5" fill="#667" text-anchor="middle" font-weight="normal" opacity="0.85">9e</text>
+<text x="190.0" y="194.7" font-family="Segoe UI,Arial" font-size="9" fill="#336699" text-anchor="middle" font-weight="bold" opacity="0.85">Port</text>
+<text x="400.0" y="103.6" font-family="Segoe UI,Arial" font-size="8" fill="#889" text-anchor="middle" font-weight="normal" opacity="0.85">N. Marseille</text>
+
+  <g class="mkr" data-id="0" transform="translate(511.5,362.5)" onclick="showPopup(0)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#0d47a1" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="1" transform="translate(456,283)" onclick="showPopup(1)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#0d47a1" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="1" transform="translate(480.0,314.9)" onclick="showPopup(1)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#0d47a1" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="2" transform="translate(486,270)" onclick="showPopup(2)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#1b5e20" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="2" transform="translate(515.0,300.4)" onclick="showPopup(2)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#1b5e20" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="3" transform="translate(573,452)" onclick="showPopup(3)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#1b5e20" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="3" transform="translate(616.0,503.4)" onclick="showPopup(3)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#1b5e20" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="4" transform="translate(471,274)" onclick="showPopup(4)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#880e4f" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="4" transform="translate(497.5,304.5)" onclick="showPopup(4)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#880e4f" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="5" transform="translate(436,302)" onclick="showPopup(5)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#880e4f" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="5" transform="translate(457.5,335.6)" onclick="showPopup(5)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#880e4f" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="6" transform="translate(464,292)" onclick="showPopup(6)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#880e4f" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="6" transform="translate(490.0,325.2)" onclick="showPopup(6)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#880e4f" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="7" transform="translate(501,324)" onclick="showPopup(7)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#4a148c" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="7" transform="translate(532.5,360.4)" onclick="showPopup(7)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#4a148c" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="8" transform="translate(439,273)" onclick="showPopup(8)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="8" transform="translate(460.0,303.3)" onclick="showPopup(8)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#e65100" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="9" transform="translate(451,259)" onclick="showPopup(9)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="9" transform="translate(474.0,287.9)" onclick="showPopup(9)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#e65100" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="10" transform="translate(486,257)" onclick="showPopup(10)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="10" transform="translate(515.0,285.9)" onclick="showPopup(10)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#e65100" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="11" transform="translate(510,277)" onclick="showPopup(11)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="11" transform="translate(543.5,308.6)" onclick="showPopup(11)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#e65100" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="12" transform="translate(505,337)" onclick="showPopup(12)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="12" transform="translate(537.5,374.9)" onclick="showPopup(12)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#e65100" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="13" transform="translate(535,444)" onclick="showPopup(13)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="13" transform="translate(572.5,493.8)" onclick="showPopup(13)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#e65100" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="14" transform="translate(621,361)" onclick="showPopup(14)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="14" transform="translate(672.5,401.9)" onclick="showPopup(14)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#e65100" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="15" transform="translate(687,309)" onclick="showPopup(15)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="15" transform="translate(749.0,343.9)" onclick="showPopup(15)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#e65100" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="16" transform="translate(567,143)" onclick="showPopup(16)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="16" transform="translate(609.0,159.5)" onclick="showPopup(16)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#e65100" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="17" transform="translate(533,160)" onclick="showPopup(17)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="17" transform="translate(570.0,178.1)" onclick="showPopup(17)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#e65100" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="18" transform="translate(421,180)" onclick="showPopup(18)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="18" transform="translate(439.0,199.7)" onclick="showPopup(18)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#e65100" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-  <g class="marker" data-id="19" transform="translate(349,71)" onclick="showPopup(19)" style="cursor:pointer">
-    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
-    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  <g class="mkr" data-id="19" transform="translate(356.0,78.7)" onclick="showPopup(19)" style="cursor:pointer">
+    <path d="M0,-20 C-7,-20 -12,-15 -12,-9 C-12,0 0,12 0,12 C0,12 12,0 12,-9 C12,-15 7,-20 0,-20Z" fill="#e65100" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="0" cy="-9" r="4.5" fill="#fff" opacity="0.92"/>
   </g>
-      <!-- Boussole -->
-      <g transform="translate(830,30)">
-        <circle r="20" fill="white" opacity="0.88"/>
-        <text x="0" y="-7" text-anchor="middle" font-size="11" font-weight="800" fill="#c0392b">N</text>
-        <polygon points="0,-17 3,-5 0,-9 -3,-5" fill="#c0392b"/>
-        <polygon points="0,17 3,5 0,9 -3,5" fill="#777"/>
-      </g>
-      <!-- Attribution -->
-      <text x="6" y="536" font-family="Arial" font-size="9" fill="#999">Carte schématique – positions approximatives</text>
-    </svg>
-    <!-- Popup -->
-    <div class="map-popup" id="mapPopup">
-      <div class="popup-head" id="popupHead">
-        <button class="popup-close" onclick="closePopup()">✕</button>
-        <span id="popupTitle"></span>
-      </div>
-      <div class="popup-body" id="popupBody"></div>
+
+  <g transform="translate(862,520)">
+    <circle r="22" fill="white" opacity="0.88" stroke="#ccc" stroke-width="1"/>
+    <polygon points="0,-18 3,-6 0,-10 -3,-6" fill="#c0392b"/>
+    <polygon points="0,18 3,6 0,10 -3,6" fill="#888"/>
+    <line x1="0" y1="-18" x2="0" y2="18" stroke="#ddd" stroke-width="0.5"/>
+    <line x1="-18" y1="0" x2="18" y2="0" stroke="#ddd" stroke-width="0.5"/>
+    <text x="0" y="-8" text-anchor="middle" font-size="10" font-weight="800" fill="#c0392b">N</text>
+  </g>
+
+  <g transform="translate(20,560)">
+    <line x1="0" y1="0" x2="0" y2="0" stroke="#555" stroke-width="2"/>
+    <line x1="0" y1="-4" x2="0" y2="4" stroke="#555" stroke-width="2"/>
+    <line x1="0" y1="-4" x2="0" y2="4" stroke="#555" stroke-width="2"/>
+    <text x="0" y="-6" text-anchor="middle" font-family="Arial" font-size="9" fill="#555">~ 2 km</text>
+  </g>
+<text x="450" y="576" text-anchor="middle" font-family="Arial" font-size="8" fill="#aaa">Carte vectorielle – positions indicatives</text>
+      </svg>
     </div>
   </div>
 </div>
@@ -445,89 +521,177 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
 </footer>
 </div>
 
+<!-- Popup (fixed, hors SVG) -->
+<div class="map-popup" id="mapPopup">
+  <div class="popup-head" id="popupHead">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <span id="popupTitle"></span>
+  </div>
+  <div class="popup-body" id="popupBody"></div>
+</div>
+
 <script>
-var sites = [
-  {id:0,label:'Mission Locale de Marseille',addr:'23 av. de Corinthe, 13006',tel:'04 91 19 01 20',url:"https://missionlocalemarseille.fr",c:'#0d47a1'},
-  {id:1,label:'France Travail – Porte d\'Aix',addr:'1 place Jules Guesde, 13002',tel:'3949',url:"https://www.francetravail.fr",c:'#0d47a1'},
-  {id:2,label:'CCAS de Marseille',addr:'50 rue de Ruffi, 13003',tel:'04 86 94 45 01',url:"https://ccas-marseille.fr",c:'#1b5e20'},
-  {id:3,label:'CAF Marseille Sud',addr:'215 chemin de Gibbes, 13014',tel:'3230',url:"https://www.caf.fr",c:'#1b5e20'},
-  {id:4,label:'Planning Familial 13',addr:'106 bd National, 13003',tel:'04 91 91 09 39',url:"https://leplanning13.org",c:'#880e4f'},
-  {id:5,label:'CSAPA – Addictions France',addr:'24A rue Fort Notre-Dame, 13001',tel:'04 91 84 75 12',url:"https://addictions-france.org",c:'#880e4f'},
-  {id:6,label:'Addiction Méditerranée',addr:'7 sq. Stalingrad, 13001',tel:'04 96 11 57 66',url:"https://www.addiction-mediterranee.fr",c:'#880e4f'},
-  {id:7,label:'UNAFAM 13',addr:'28 rue Léon Bérard, 13005',tel:'06 43 84 67 22',url:"https://www.unafam.org",c:'#4a148c'},
-  {id:8,label:'MDS Pressensé',addr:'15 place de la Joliette, 13002',tel:'04 13 31 59 17',url:"",c:'#e65100'},
-  {id:9,label:'MDS Littoral',addr:'18 av. Robert Schuman, 13002',tel:'04 13 31 76 75',url:"",c:'#e65100'},
-  {id:10,label:'MDS Belle de Mai',addr:'24 rue Jobin, 13003',tel:'04 13 31 65 10',url:"",c:'#e65100'},
-  {id:11,label:'MDS Chartreux',addr:'21 rue Pierre Roche, 13004',tel:'04 13 31 67 13',url:"",c:'#e65100'},
-  {id:12,label:'MDS Saint Sébastien',addr:'66A rue St-Sébastien, 13006',tel:'04 13 31 72 72',url:"",c:'#e65100'},
-  {id:13,label:'MDS Bonneveine',addr:'35 bd Baptistin Cayol, 13008',tel:'04 13 31 77 60',url:"",c:'#e65100'},
-  {id:14,label:'MDS Pont de Vivaux',addr:'250 bd Mireille Lauze, 13010',tel:'04 13 31 53 13',url:"",c:'#e65100'},
-  {id:15,label:'MDS Saint Marcel',addr:'37 rue des Crottes, 13011',tel:'04 13 31 75 01',url:"",c:'#e65100'},
-  {id:16,label:'MDS Le Nautile',addr:'29 av. de Frais Vallon, 13013',tel:'04 13 31 57 77',url:"",c:'#e65100'},
-  {id:17,label:'MDS Vallon de Malpassé',addr:'15 rue Raymonde Martin, 13013',tel:'04 13 31 06 50',url:"",c:'#e65100'},
-  {id:18,label:'MDS Les Flamants',addr:'14 av. Alexandre Ansaldi, 13014',tel:'04 13 31 62 30',url:"",c:'#e65100'},
-  {id:19,label:'MDS La Viste',addr:'43 avenue de la Viste, 13015',tel:'04 13 31 64 03',url:"",c:'#e65100'},
+var SITES = [
+  {id:0,label:'Mission Locale de Marseille',addr:'23 av. de Corinthe, 13006',tel:'04 91 19 01 20',url:'https://missionlocalemarseille.fr',c:'#0d47a1'},
+  {id:1,label:'France Travail – Porte d\'Aix',addr:'1 place Jules Guesde, 13002',tel:'3949',url:'https://www.francetravail.fr',c:'#0d47a1'},
+  {id:2,label:'CCAS de Marseille',addr:'50 rue de Ruffi, 13003',tel:'04 86 94 45 01',url:'https://ccas-marseille.fr',c:'#1b5e20'},
+  {id:3,label:'CAF Marseille Sud',addr:'215 chemin de Gibbes, 13014',tel:'3230',url:'https://www.caf.fr',c:'#1b5e20'},
+  {id:4,label:'Planning Familial 13',addr:'106 bd National, 13003',tel:'04 91 91 09 39',url:'https://leplanning13.org',c:'#880e4f'},
+  {id:5,label:'CSAPA – Addictions France',addr:'24A rue Fort Notre-Dame, 13001',tel:'04 91 84 75 12',url:'https://addictions-france.org',c:'#880e4f'},
+  {id:6,label:'Addiction Méditerranée',addr:'7 sq. Stalingrad, 13001',tel:'04 96 11 57 66',url:'https://www.addiction-mediterranee.fr',c:'#880e4f'},
+  {id:7,label:'UNAFAM 13',addr:'28 rue Léon Bérard, 13005',tel:'06 43 84 67 22',url:'https://www.unafam.org',c:'#4a148c'},
+  {id:8,label:'MDS Pressensé',addr:'15 place de la Joliette, 13002',tel:'04 13 31 59 17',url:'',c:'#e65100'},
+  {id:9,label:'MDS Littoral',addr:'18 av. Robert Schuman, 13002',tel:'04 13 31 76 75',url:'',c:'#e65100'},
+  {id:10,label:'MDS Belle de Mai',addr:'24 rue Jobin, 13003',tel:'04 13 31 65 10',url:'',c:'#e65100'},
+  {id:11,label:'MDS Chartreux',addr:'21 rue Pierre Roche, 13004',tel:'04 13 31 67 13',url:'',c:'#e65100'},
+  {id:12,label:'MDS Saint Sébastien',addr:'66A rue St-Sébastien, 13006',tel:'04 13 31 72 72',url:'',c:'#e65100'},
+  {id:13,label:'MDS Bonneveine',addr:'35 bd Baptistin Cayol, 13008',tel:'04 13 31 77 60',url:'',c:'#e65100'},
+  {id:14,label:'MDS Pont de Vivaux',addr:'250 bd Mireille Lauze, 13010',tel:'04 13 31 53 13',url:'',c:'#e65100'},
+  {id:15,label:'MDS Saint Marcel',addr:'37 rue des Crottes, 13011',tel:'04 13 31 75 01',url:'',c:'#e65100'},
+  {id:16,label:'MDS Le Nautile',addr:'29 av. de Frais Vallon, 13013',tel:'04 13 31 57 77',url:'',c:'#e65100'},
+  {id:17,label:'MDS Vallon de Malpassé',addr:'15 rue Raymonde Martin, 13013',tel:'04 13 31 06 50',url:'',c:'#e65100'},
+  {id:18,label:'MDS Les Flamants',addr:'14 av. Alexandre Ansaldi, 13014',tel:'04 13 31 62 30',url:'',c:'#e65100'},
+  {id:19,label:'MDS La Viste',addr:'43 avenue de la Viste, 13015',tel:'04 13 31 64 03',url:'',c:'#e65100'},
 ];
+var scale = 1, tx = 0, ty = 0;
+var dragging = false, startX, startY, startTx, startTy;
 
+var outer = document.getElementById('mapOuter');
+var inner = document.getElementById('mapInner');
+
+function applyTransform() {
+  inner.style.transform = 'translate('+tx+'px,'+ty+'px) scale('+scale+')';
+}
+
+// Zoom centré sur le centre de la vue
+function zoomMap(factor) {
+  var rect = outer.getBoundingClientRect();
+  var cx = rect.width / 2, cy = rect.height / 2;
+  tx = cx - (cx - tx) * factor;
+  ty = cy - (cy - ty) * factor;
+  scale *= factor;
+  scale = Math.min(Math.max(scale, 0.5), 6);
+  applyTransform();
+}
+
+function resetMap() {
+  scale = 1; tx = 0; ty = 0;
+  applyTransform();
+  closePopup();
+}
+
+// Zoom molette
+outer.addEventListener('wheel', function(e) {
+  e.preventDefault();
+  var factor = e.deltaY < 0 ? 1.2 : 0.83;
+  var rect = outer.getBoundingClientRect();
+  var mx = e.clientX - rect.left;
+  var my = e.clientY - rect.top;
+  tx = mx - (mx - tx) * factor;
+  ty = my - (my - ty) * factor;
+  scale *= factor;
+  scale = Math.min(Math.max(scale, 0.5), 6);
+  applyTransform();
+}, {passive: false});
+
+// Pan souris
+outer.addEventListener('mousedown', function(e) {
+  if (e.target.closest('.mkr') || e.target.closest('.map-popup')) return;
+  dragging = true;
+  startX = e.clientX; startY = e.clientY;
+  startTx = tx; startTy = ty;
+});
+document.addEventListener('mousemove', function(e) {
+  if (!dragging) return;
+  tx = startTx + (e.clientX - startX);
+  ty = startTy + (e.clientY - startY);
+  applyTransform();
+});
+document.addEventListener('mouseup', function() { dragging = false; });
+
+// Pan tactile
+outer.addEventListener('touchstart', function(e) {
+  if (e.touches.length === 1) {
+    dragging = true;
+    startX = e.touches[0].clientX; startY = e.touches[0].clientY;
+    startTx = tx; startTy = ty;
+  }
+}, {passive:true});
+outer.addEventListener('touchmove', function(e) {
+  if (!dragging || e.touches.length !== 1) return;
+  tx = startTx + (e.touches[0].clientX - startX);
+  ty = startTy + (e.touches[0].clientY - startY);
+  applyTransform();
+}, {passive:true});
+outer.addEventListener('touchend', function() { dragging = false; });
+
+// Popup
 function showPopup(id) {
-  var s = sites[id];
-  var wrap = document.getElementById('mapWrap');
-  var popup = document.getElementById('mapPopup');
+  var s = SITES[id];
+  document.querySelectorAll('.mkr').forEach(function(m){m.classList.remove('active');});
+  var mk = document.querySelector('.mkr[data-id="'+id+'"]');
+  if (mk) mk.classList.add('active');
+
   var head = document.getElementById('popupHead');
-  var body = document.getElementById('popupBody');
-
-  // Highlight marker
-  document.querySelectorAll('.marker').forEach(function(m) { m.classList.remove('active'); });
-  var activeMarker = document.querySelector('.marker[data-id="'+id+'"]');
-  if (activeMarker) activeMarker.classList.add('active');
-
   head.style.background = s.c;
   document.getElementById('popupTitle').textContent = s.label;
 
-  var html = '<div>📍 ' + s.addr + '</div>';
-  html += '<div>📞 <a href="tel:' + s.tel.replace(/\s/g,'') + '">' + s.tel + '</a></div>';
-  if (s.url) html += '<div>🌐 <a href="' + s.url + '" target="_blank" rel="noopener">' + s.url.replace('https://','') + '</a></div>';
-  body.innerHTML = html;
+  var html = '<div>📍 '+s.addr+'</div>';
+  html += '<div>📞 <a href="tel:'+s.tel.replace(/ /g,'')+'">'+s.tel+'</a></div>';
+  if (s.url) html += '<div>🌐 <a href="'+s.url+'" target="_blank" rel="noopener">'+s.url.replace('https://','')+'</a></div>';
+  document.getElementById('popupBody').innerHTML = html;
 
-  // Position popup near marker
-  var svg = document.getElementById('mapSvg');
-  var rect = wrap.getBoundingClientRect();
-  var svgRect = svg.getBoundingClientRect();
-  var scaleX = svgRect.width / 860;
-  var scaleY = svgRect.height / 540;
+  // Positionner la popup près du marqueur dans la vue
+  var svgEl = document.getElementById('mapSvg');
+  var mk2 = document.querySelector('.mkr[data-id="'+id+'"]');
+  var tr = mk2.getAttribute('transform').match(/translate\(([0-9.]+),([0-9.]+)\)/);
+  var mx = parseFloat(tr[1]), my = parseFloat(tr[2]);
+  // Convertir en coordonnées écran
+  var outerRect = outer.getBoundingClientRect();
+  var svgRect = svgEl.getBoundingClientRect();
+  var sx = outerRect.left + (mx * scale + tx);
+  var sy = outerRect.top  + (my * scale + ty);
 
-  // Get marker position from transform
-  var marker = document.querySelector('.marker[data-id="'+id+'"]');
-  var transform = marker.getAttribute('transform');
-  var coords = transform.match(/translate\((\d+),(\d+)\)/);
-  var mx = parseInt(coords[1]) * scaleX;
-  var my = parseInt(coords[2]) * scaleY;
-
-  var popW = 240, popH = 120;
-  var left = mx + 20;
-  var top = my - 60;
-  if (left + popW > svgRect.width) left = mx - popW - 10;
-  if (top < 0) top = my + 20;
-
-  popup.style.left = left + 'px';
-  popup.style.top = top + 'px';
+  var popup = document.getElementById('mapPopup');
   popup.style.display = 'block';
+  var pw = popup.offsetWidth || 250;
+  var ph = popup.offsetHeight || 110;
+  var left = sx + 18;
+  var top  = sy - ph/2;
+  if (left + pw > window.innerWidth - 10) left = sx - pw - 18;
+  if (top < 60) top = sy + 10;
+  if (top + ph > window.innerHeight - 10) top = sy - ph - 10;
+  popup.style.left = left + 'px';
+  popup.style.top  = top  + 'px';
 }
 
 function closePopup() {
   document.getElementById('mapPopup').style.display = 'none';
-  document.querySelectorAll('.marker').forEach(function(m) { m.classList.remove('active'); });
+  document.querySelectorAll('.mkr').forEach(function(m){m.classList.remove('active');});
 }
 
 function flyTo(id) {
-  var mapSec = document.querySelector('.map-sec');
-  mapSec.scrollIntoView({behavior:'smooth', block:'center'});
-  setTimeout(function() { showPopup(id); }, 500);
+  var s = SITES[id];
+  // Centrer le marqueur dans la vue
+  var mk = document.querySelector('.mkr[data-id="'+id+'"]');
+  var tr = mk.getAttribute('transform').match(/translate\(([0-9.]+),([0-9.]+)\)/);
+  var mx = parseFloat(tr[1]), my = parseFloat(tr[2]);
+  var rect = outer.getBoundingClientRect();
+  var targetScale = 2.5;
+  tx = rect.width/2  - mx * targetScale;
+  ty = rect.height/2 - my * targetScale;
+  scale = targetScale;
+  applyTransform();
+
+  document.querySelector('.map-sec').scrollIntoView({behavior:'smooth', block:'center'});
+  setTimeout(function(){ showPopup(id); }, 600);
 }
 
-// Fermer popup en cliquant à côté
-document.getElementById('mapWrap').addEventListener('click', function(e) {
-  if (!e.target.closest('.marker') && !e.target.closest('.map-popup')) closePopup();
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.mkr') && !e.target.closest('.map-popup') &&
+      !e.target.closest('.map-btn') && !e.target.closest('.t-btn')) {
+    closePopup();
+  }
 });
 </script>
 </body>
