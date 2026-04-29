@@ -28,172 +28,162 @@ a:hover{text-decoration:underline}
 .btn-print{display:inline-flex;align-items:center;gap:.45rem;background:#fff;color:var(--blue);font-weight:700;font-size:.83rem;padding:.55rem 1.1rem;border-radius:30px;border:none;cursor:pointer;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.18);position:relative;z-index:2;font-family:'Segoe UI',Arial,sans-serif}
 
 .intro{background:var(--blue-lt);border-left:5px solid var(--blue);padding:.9rem 1.8rem;margin:1.4rem 1.4rem 0;border-radius:0 var(--r-s) var(--r-s) 0;font-size:.9rem;color:var(--txt-md)}
+
+.map-sec{margin:2rem 1.4rem 0;background:#fff;border-radius:var(--r);border:1px solid var(--grey-bd);box-shadow:var(--sh);overflow:hidden;position:relative}
+.map-hdr{background:var(--blue);padding:.8rem 1.4rem;display:flex;justify-content:space-between;align-items:center;color:#fff}
+.map-hdr h2{font-size:.95rem;font-weight:700}
+.map-controls{display:flex;gap:8px}
+.map-ctrl-btn{background:rgba(255,255,255,0.2);border:1px solid #fff;color:#fff;width:32px;height:32px;border-radius:6px;cursor:pointer;font-weight:bold;display:flex;align-items:center;justify-content:center}
+
+.map-outer{height:500px;background:#e3f2fd;position:relative;overflow:hidden;cursor:grab}
+.map-outer:active{cursor:grabbing}
+#mapContainer{width:100%;height:100%;transform-origin:0 0;will-change:transform}
+
+/* SVG Marseille Design Realiste */
+.m-water{fill:#cfe6f7}
+.m-land{fill:#ffffff;stroke:#cbd5e0;stroke-width:1}
+.m-road-main{fill:none;stroke:#cbd5e0;stroke-width:2.5;stroke-linecap:round}
+.m-road-sec{fill:none;stroke:#e2e8f0;stroke-width:1.2}
+.mkr{cursor:pointer;transition:transform 0.2s}
+.mkr:hover{transform:scale(1.2)}
+.mkr circle{stroke:#fff;stroke-width:1.5;filter:drop-shadow(0 2px 3px rgba(0,0,0,0.2))}
+
+.map-popup{position:absolute;background:#fff;padding:12px;border-radius:10px;box-shadow:var(--sh-h);display:none;z-index:100;width:240px;border:1px solid var(--blue);font-size:0.85rem}
+.popup-close{float:right;cursor:pointer;font-weight:bold;color:var(--txt-lt)}
+
 .sec{display:flex;align-items:center;gap:.7rem;padding:0 1.4rem;margin:2rem 0 .9rem}
 .sec-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
 .sec h2{font-size:1.05rem;font-weight:700;color:var(--txt-dk)}
 .badge{margin-left:auto;background:var(--grey-bd);color:var(--txt-lt);font-size:.72rem;font-weight:700;padding:.18rem .6rem;border-radius:20px}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;padding:0 1.4rem}
-.card{background:#fff;border:1px solid var(--grey-bd);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
-.card:hover{box-shadow:var(--sh-h);transform:translateY(-3px)}
-.card-top{padding:1.1rem 1.2rem .8rem;border-bottom:1px solid var(--grey-bd);display:flex;align-items:flex-start;gap:.85rem}
-
-.logo-icon{width:54px;height:48px;border-radius:var(--r-s);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.logo-icon svg{width:32px;height:32px}
-
-.title-block h3{font-size:.9rem;font-weight:700;color:var(--txt-dk);line-height:1.3;margin-bottom:.2rem}
-.tag{font-size:.67rem;font-weight:700;padding:.13rem .5rem;border-radius:20px;display:inline-block;text-transform:uppercase;letter-spacing:.03em}
-.te{background:#e3f2fd;color:#0d47a1}.ts{background:#e8f5e9;color:#1b5e20}
-.th{background:#fce4ec;color:#880e4f}.tp{background:#f3e5f5;color:#4a148c}.tm{background:#fff3e0;color:#e65100}
-
-.card-body{padding:.8rem 1.2rem;display:flex;flex-direction:column;gap:.38rem;flex:1}
-.row{display:flex;align-items:flex-start;gap:.5rem;font-size:.8rem;color:var(--txt-md);line-height:1.45}
-.ri{flex-shrink:0;margin-top:1px}
-.row strong{color:var(--txt-dk);font-weight:600;font-size:.76rem}
-.card-foot{padding:.6rem 1.2rem;border-top:1px solid var(--grey-bd);background:var(--grey-bg)}
-.map-btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--blue);color:#fff;font-size:.73rem;font-weight:700;padding:.3rem .85rem;border-radius:20px;border:none;cursor:pointer;font-family:'Segoe UI',Arial,sans-serif;transition:background .15s}
-.map-btn:hover{background:var(--blue-dk);color:#fff}
-.map-btn svg{width:13px;height:13px;flex-shrink:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;padding:0 1.4rem}
+.card{background:#fff;border-radius:var(--r);border:1px solid var(--grey-bd);padding:1.4rem;transition:0.3s;position:relative;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-3px);box-shadow:var(--sh-h);border-color:var(--blue)}
+.cat-tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:700;text-transform:uppercase;margin-bottom:0.8rem;width:fit-content}
+.cat-adm{background:#e3f2fd;color:#0e71b8}
+.cat-san{background:#fce4ec;color:#c2185b}
+.card h3{margin-bottom:0.6rem;font-size:1.15rem;color:var(--txt-dk)}
+.card p{font-size:0.9rem;color:var(--txt-md);margin-bottom:0.4rem}
+.btn-map{font-size:0.85rem;font-weight:600;color:var(--blue);cursor:pointer;margin-top:auto;padding-top:10px}
 
 .mds-wrap{margin:0 1.4rem;background:#fff;border:1px solid var(--grey-bd);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
-.mds-info{display:flex;gap:.7rem;align-items:flex-start;padding:.9rem 1.3rem;background:var(--blue-lt);border-bottom:1px solid var(--grey-bd);font-size:.83rem;color:var(--txt-md)}
 table{width:100%;border-collapse:collapse}
 thead tr{background:var(--blue)}
-thead th{color:#fff;font-size:.76rem;font-weight:700;padding:.55rem .9rem;text-align:left;letter-spacing:.03em}
-tbody tr{border-bottom:1px solid var(--grey-bd)}
-tbody td{padding:.5rem .9rem;font-size:.79rem;color:var(--txt-md);vertical-align:middle}
-tbody td:first-child{font-weight:700;color:var(--txt-dk)}
+thead th{color:#fff;font-size:.76rem;font-weight:700;padding:.55rem .9rem;text-align:left}
+tbody td{padding:.5rem .9rem;font-size:.79rem;border-bottom:1px solid var(--grey-bd)}
 
-/* CARTE MISE À JOUR */
-.map-sec{margin:2rem 1.4rem 0;border-radius:var(--r);overflow:hidden;border:1px solid var(--grey-bd);box-shadow:var(--sh)}
-.map-hdr{background:linear-gradient(135deg,var(--blue),var(--blue-dk));padding:.9rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-.map-hdr h2{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:.1rem}
-.map-hdr p{color:rgba(255,255,255,.72);font-size:.78rem}
-.map-controls{display:flex;gap:.5rem}
-.map-ctrl-btn{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:1.1rem;width:32px;height:32px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:0.2s}
-
-.map-outer{overflow:hidden;position:relative;background:#cfe6f7;height:500px;cursor:grab}
-.map-outer:active{cursor:grabbing}
-.map-inner{position:absolute;top:0;left:0;transform-origin:0 0;will-change:transform}
-
-/* Style du tracé Marseille */
-.m-land{fill:#ffffff;stroke:#cbd5e0;stroke-width:1}
-.m-road{fill:none;stroke:#e2e8f0;stroke-width:1.5}
-.m-road-main{fill:none;stroke:#cbd5e0;stroke-width:3}
-.mkr{cursor:pointer;transition:transform 0.2s}
-.mkr:hover{transform:scale(1.2)}
-.mkr circle{stroke:#fff;stroke-width:1.5;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2))}
-.mkr.active circle{stroke:orange;stroke-width:3}
-
-.map-popup{position:absolute;background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.15);display:none;z-index:100;width:240px;border:1px solid var(--blue);font-size:0.85rem}
-.popup-close{float:right;cursor:pointer;font-weight:bold;color:var(--txt-lt)}
-
-.footer{text-align:center;padding:1.3rem;font-size:.75rem;color:var(--txt-lt);margin-top:2rem;border-top:1px solid var(--grey-bd)}
+@media (max-width:768px){.hdr{flex-direction:column;text-align:center}.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+
 <div class="pw">
+  <header class="hdr">
+    <div class="hdr-logo"><img src="https://mypartnerschool.com/wp-content/uploads/2021/04/Logo-My-Partner-School-Blanc.png" alt="Logo"></div>
+    <div class="hdr-title">
+      <h1>My Partner School</h1>
+      <p>Contacts utiles & Guide pratique Marseille</p>
+    </div>
+    <button class="btn-print" onclick="window.print()">Imprimer le guide</button>
+  </header>
 
-<header class="hdr">
-  <div class="hdr-logo"><img src="https://mypartnerschool.com/wp-content/uploads/2021/04/Logo-My-Partner-School-Blanc.png" alt="Logo"></div>
-  <div class="hdr-title">
-    <h1>My Partner School</h1>
-    <p>Contacts utiles & Guide pratique Marseille</p>
+  <div class="intro">
+    Ce répertoire regroupe les contacts essentiels pour faciliter vos démarches administratives et votre quotidien à Marseille.
   </div>
-  <button class="btn-print" onclick="window.print()">Imprimer le guide</button>
-</header>
 
-<div class="intro">
-  Ce répertoire regroupe les contacts essentiels pour faciliter vos démarches administratives et votre quotidien à Marseille.
-</div>
-
-<section class="map-sec">
-  <div class="map-hdr">
-    <div>
-      <h2>Carte Interactive</h2>
-      <p>Cliquez sur les marqueurs pour voir les infos</p>
-    </div>
-    <div class="map-controls">
-      <button class="map-ctrl-btn" onclick="zoom(1.3)">+</button>
-      <button class="map-ctrl-btn" onclick="zoom(0.7)">-</button>
-      <button class="map-ctrl-btn" onclick="resetMap()">⟲</button>
-    </div>
-  </div>
-  <div class="map-outer" id="mapOuter">
-    <div class="map-inner" id="mapInner">
-      <svg viewBox="0 0 1000 1000" width="1000" height="1000">
-        <path class="m-land" d="M0,0 H1000 V1000 H400 C380,900 350,800 370,700 C390,600 300,550 220,530 C150,510 120,450 110,380 C100,300 50,250 0,250 V0 Z" />
-        <path fill="#cfe6f7" d="M110,380 L190,385 L190,415 L115,410 Z" stroke="#cbd5e0" />
-        <path class="m-road-main" d="M190,400 L450,400 M450,400 L600,800 M450,400 L650,200" />
-        <g id="markersLayer"></g>
-      </svg>
-    </div>
-    <div id="mapPopup" class="map-popup">
-      <span class="popup-close" onclick="closePopup()">×</span>
-      <div id="popupContent"></div>
-    </div>
-  </div>
-</section>
-
-<div class="sec">
-  <div class="sec-icon" style="background:#e3f2fd;color:#0e71b8">🏛️</div>
-  <h2>Administrations Principales</h2>
-  <span class="badge">4 CONTACTS</span>
-</div>
-
-<div class="grid">
-  <div class="card">
-    <div class="card-top">
-      <div class="logo-icon te">🏛️</div>
-      <div class="title-block">
-        <h3>Préfecture des Bouches-du-Rhône</h3>
-        <span class="tag te">Étrangers</span>
+  <section class="map-sec">
+    <div class="map-hdr">
+      <h2>Plan de Marseille</h2>
+      <div class="map-controls">
+        <button class="map-ctrl-btn" onclick="zoom(1.4)">+</button>
+        <button class="map-ctrl-btn" onclick="zoom(0.7)">-</button>
+        <button class="map-ctrl-btn" onclick="resetView()">⟲</button>
       </div>
     </div>
-    <div class="card-body">
-      <div class="row">📍 <strong>Adresse :</strong> Place Félix Baret, 13006 Marseille</div>
-      <div class="row">📞 <strong>Tél :</strong> 04 84 35 40 00</div>
-      <div class="row">🌐 <a href="https://www.bouches-du-rhone.gouv.fr" target="_blank">bouches-du-rhone.gouv.fr</a></div>
+    <div class="map-outer" id="mapOuter">
+      <div id="mapContainer">
+        <svg viewBox="0 0 1000 1000" width="1000" height="1000">
+          <rect width="1000" height="1000" class="m-water"/>
+          <path class="m-land" d="M0,0 H1000 V1000 H450 C400,900 380,820 390,750 C400,650 320,600 250,580 C180,560 150,500 140,430 C135,380 80,330 40,330 V0 Z" />
+          <path class="m-road-main" d="M220,445 L450,445 M450,445 L580,780 M450,445 L650,280" />
+          <g id="markersLayer"></g>
+        </svg>
+      </div>
+      <div id="mapPopup" class="map-popup">
+        <span class="popup-close" onclick="closePopup()">×</span>
+        <div id="popupContent"></div>
+      </div>
     </div>
-    <div class="card-foot">
-      <button class="map-btn" onclick="focusSite('prefecture')">Voir sur le plan</button>
+  </section>
+
+  <div class="sec">
+    <div class="sec-icon" style="background:#e3f2fd;color:#0e71b8">🏛️</div>
+    <h2>Administrations Principales</h2>
+    <span class="badge">4 CONTACTS</span>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <span class="cat-tag cat-adm">Logement</span>
+      <h3>Crous de Marseille-Avignon</h3>
+      <p>📍 38 Rue Holger Nielsen, 13013 Marseille</p>
+      <p>📞 04 91 62 83 83</p>
+      <span class="btn-map" onclick="flyTo('crous')">📍 Voir sur le plan</span>
+    </div>
+    <div class="card">
+      <span class="cat-tag cat-adm">Logement</span>
+      <h3>Action Logement</h3>
+      <p>📍 10 Rue de la République, 13001 Marseille</p>
+      <p>📞 04 86 55 50 00</p>
+      <span class="btn-map" onclick="flyTo('actionlogement')">📍 Voir sur le plan</span>
+    </div>
+    <div class="card">
+      <span class="cat-tag cat-adm">Social</span>
+      <h3>CAF des Bouches-du-Rhône</h3>
+      <p>📍 215 Chemin de Gibbes, 13014 Marseille</p>
+      <p>📞 32 30</p>
+      <span class="btn-map" onclick="flyTo('caf')">📍 Voir sur le plan</span>
+    </div>
+    <div class="card">
+      <span class="cat-tag cat-adm">Santé</span>
+      <h3>CPAM des Bouches-du-Rhône</h3>
+      <p>📍 56 Chemin de Sainte-Marthe, 13014 Marseille</p>
+      <p>📞 36 46</p>
+      <span class="btn-map" onclick="flyTo('cpam')">📍 Voir sur le plan</span>
     </div>
   </div>
+
+  <div class="sec">
+    <div class="sec-icon" style="background:#f3e5f5;color:#4a148c">🏠</div>
+    <h2>Maisons de la Solidarité (MDS)</h2>
   </div>
 
-<div class="sec">
-  <div class="sec-icon" style="background:#f3e5f5;color:#4a148c">🏠</div>
-  <h2>Maisons de la Solidarité (MDS)</h2>
-</div>
-<div class="mds-wrap">
-  <table>
-    <thead>
-      <tr><th>Arrondissement</th><th>Adresse</th><th>Téléphone</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Marseille 1er / 2e</td><td>32 Rue de la République</td><td>04 13 31 10 00</td></tr>
-      <tr><td>Marseille 3e</td><td>145 Bd National</td><td>04 13 31 10 20</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="footer">
-  &copy; 2024 My Partner School - Guide Pratique Étudiant - Marseille
-</div>
-
+  <div class="mds-wrap">
+    <table>
+      <thead>
+        <tr><th>Arrondissement</th><th>Adresse</th><th>Téléphone</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Marseille 1er / 2e</td><td>32 Rue de la République</td><td>04 13 31 10 00</td></tr>
+        <tr><td>Marseille 3e</td><td>145 Bd National</td><td>04 13 31 10 20</td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script>
 const SITES = {
-  "prefecture": { x: 450, y: 410, name: "Préfecture", info: "Place Félix Baret", color: "#0e71b8" },
-  "ecole": { x: 430, y: 380, name: "My Partner School", info: "Marseille Centre", color: "#2e7d32" }
+  "crous": { x: 650, y: 250, name: "Crous", info: "38 Rue Holger Nielsen" },
+  "actionlogement": { x: 440, y: 440, name: "Action Logement", info: "10 Rue de la République" },
+  "caf": { x: 430, y: 280, name: "CAF", info: "215 Chemin de Gibbes" },
+  "cpam": { x: 460, y: 300, name: "CPAM", info: "56 Chemin de Sainte-Marthe" }
 };
 
 let scale = 1, tx = 0, ty = 0;
 const outer = document.getElementById('mapOuter');
-const inner = document.getElementById('mapInner');
+const container = document.getElementById('mapContainer');
 
-function update() { inner.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; }
+function update() { container.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; }
 
 function init() {
   const layer = document.getElementById('markersLayer');
@@ -204,7 +194,7 @@ function init() {
     g.onclick = (e) => { e.stopPropagation(); showPopup(id); };
     const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     c.setAttribute("cx", s.x); c.setAttribute("cy", s.y); c.setAttribute("r", 12);
-    c.setAttribute("fill", s.color);
+    c.setAttribute("fill", "#0e71b8");
     g.appendChild(c);
     layer.appendChild(g);
   }
@@ -214,10 +204,10 @@ function showPopup(id) {
   const s = SITES[id];
   document.getElementById('popupContent').innerHTML = `<strong>${s.name}</strong><br>${s.info}`;
   const p = document.getElementById('mapPopup');
-  p.style.display = 'block'; p.style.left = '20px'; p.style.top = '20px';
+  p.style.display = 'block'; p.style.left = "20px"; p.style.top = "20px";
 }
 
-function focusSite(id) {
+function flyTo(id) {
   const s = SITES[id]; scale = 3;
   tx = (outer.offsetWidth/2) - (s.x * scale);
   ty = (outer.offsetHeight/2) - (s.y * scale);
@@ -225,14 +215,13 @@ function focusSite(id) {
 }
 
 function zoom(f) { scale *= f; update(); }
-function resetMap() { scale = 1; tx = 0; ty = 0; update(); closePopup(); }
+function resetView() { scale = 1; tx = 0; ty = 0; update(); closePopup(); }
 function closePopup() { document.getElementById('mapPopup').style.display = 'none'; }
 
-// Drag & Pan simple
-let isDraging = false, sx, sy;
-outer.onmousedown = (e) => { isDraging = true; sx = e.clientX - tx; sy = e.clientY - ty; };
-window.onmousemove = (e) => { if(isDraging) { tx = e.clientX - sx; ty = e.clientY - sy; update(); } };
-window.onmouseup = () => isDraging = false;
+let isDragging = false, sx, sy;
+outer.onmousedown = (e) => { isDragging = true; sx = e.clientX - tx; sy = e.clientY - ty; };
+window.onmousemove = (e) => { if(isDragging) { tx = e.clientX - sx; ty = e.clientY - sy; update(); } };
+window.onmouseup = () => isDragging = false;
 
 init();
 </script>
