@@ -33,29 +33,27 @@ a:hover{text-decoration:underline}
 .map-hdr{background:var(--blue);padding:0.8rem 1.4rem;display:flex;justify-content:space-between;align-items:center;color:#fff}
 .map-controls{display:flex;gap:8px}
 .map-ctrl-btn{background:rgba(255,255,255,0.2);border:1px solid #fff;color:#fff;width:32px;height:32px;border-radius:6px;cursor:pointer;font-weight:bold;display:flex;align-items:center;justify-content:center}
-.map-ctrl-btn:hover{background:rgba(255,255,255,0.3)}
 
 .map-outer{height:550px;background:#e3f2fd;position:relative;overflow:hidden;cursor:grab}
 .map-outer:active{cursor:grabbing}
 #mapContainer{width:100%;height:100%;transform-origin:0 0;will-change:transform}
 
-/* Style SVG Marseille */
+/* SVG Marseille Design */
 .m-water{fill:#cfe6f7}
 .m-land{fill:#ffffff;stroke:#cbd5e0;stroke-width:1}
-.m-road-main{fill:none;stroke:#f0f4f8;stroke-width:3}
-.m-road-major{fill:none;stroke:#cbd5e0;stroke-width:1.5}
-.mkr{cursor:pointer;transition:0.2s}
+.m-road-main{fill:none;stroke:#cbd5e0;stroke-width:2.5;stroke-linecap:round}
+.m-road-sec{fill:none;stroke:#e2e8f0;stroke-width:1.2}
+.mkr{cursor:pointer;transition:transform 0.2s}
 .mkr:hover{transform:scale(1.2)}
-.mkr circle{stroke:#fff;stroke-width:1.5}
+.mkr circle{stroke:#fff;stroke-width:1.5;filter:drop-shadow(0 2px 3px rgba(0,0,0,0.2))}
 
 /* Popup */
-.map-popup{position:absolute;background:#fff;padding:15px;border-radius:10px;box-shadow:var(--sh-h);display:none;z-index:100;width:240px;border:1px solid var(--blue)}
-.popup-close{float:right;cursor:pointer;font-size:1.2rem;line-height:1;color:var(--txt-lt)}
+.map-popup{position:absolute;background:#fff;padding:12px;border-radius:10px;box-shadow:var(--sh-h);display:none;z-index:100;width:240px;border:1px solid var(--blue);font-size:0.9rem}
+.popup-close{float:right;cursor:pointer;font-weight:bold;color:var(--txt-lt)}
 
 /* Search & Contacts */
 .search-bar{margin:0 1.4rem 2rem;position:relative}
-.search-bar input{width:100%;padding:1rem 1.5rem 1rem 3rem;border-radius:30px;border:1.4px solid var(--grey-bd);font-size:1rem;outline:none;transition:0.3s}
-.search-bar input:focus{border-color:var(--blue);box-shadow:var(--sh)}
+.search-bar input{width:100%;padding:1rem 1.5rem 1rem 3rem;border-radius:30px;border:1.4px solid var(--grey-bd);font-size:1rem;outline:none}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;padding:0 1.4rem}
 .card{background:#fff;border-radius:var(--r);border:1px solid var(--grey-bd);padding:1.4rem;transition:0.3s;position:relative}
@@ -63,10 +61,6 @@ a:hover{text-decoration:underline}
 .cat-tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:700;text-transform:uppercase;margin-bottom:0.8rem}
 .cat-adm{background:#e3f2fd;color:#0e71b8}
 .cat-san{background:#fce4ec;color:#c2185b}
-.card h3{margin-bottom:0.6rem;font-size:1.15rem;color:var(--txt-dk)}
-.card p{font-size:0.9rem;color:var(--txt-md);margin-bottom:0.4rem}
-
-@media (max-width:768px){.hdr{flex-direction:column;text-align:center;gap:1rem}.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -83,15 +77,15 @@ a:hover{text-decoration:underline}
   </header>
 
   <div class="intro">
-    Bienvenue sur votre guide interactif. Cette carte vectorielle fonctionne <strong>sans connexion internet</strong>. Utilisez la molette pour zoomer et faites glisser pour explorer la ville.
+    Cette carte vectorielle est dessinée à partir de données réelles. Elle fonctionne totalement <strong>hors-ligne</strong>.
   </div>
 
   <section class="map-sec">
     <div class="map-hdr">
-      <span>Plan de Marseille Haute Précision</span>
+      <span>Plan Vectoriel de Marseille</span>
       <div class="map-controls">
-        <button class="map-ctrl-btn" onclick="zoom(1.3)">+</button>
-        <button class="map-ctrl-btn" onclick="zoom(0.7)">-</button>
+        <button class="map-ctrl-btn" onclick="zoom(1.4)">+</button>
+        <button class="map-ctrl-btn" onclick="zoom(0.6)">-</button>
         <button class="map-ctrl-btn" onclick="resetView()">⟲</button>
       </div>
     </div>
@@ -100,13 +94,12 @@ a:hover{text-decoration:underline}
       <div id="mapContainer">
         <svg viewBox="0 0 1000 1000" width="1000" height="1000">
           <rect width="1000" height="1000" class="m-water"/>
-          <path class="m-land" d="M0,0 H1000 V1000 H400 C350,900 320,800 350,700 C380,600 250,550 150,500 C100,450 50,300 10,250 V0 Z" />
+          <path class="m-land" d="M0,0 H1000 V1000 H450 C400,900 380,820 390,750 C400,650 320,600 250,580 C180,560 150,500 140,430 C135,380 80,350 40,330 V0 Z" />
+          <path class="m-water" d="M140,430 L220,435 L220,460 L145,455 Z" stroke="#cbd5e0" stroke-width="1"/>
           
-          <path class="m-road-main" d="M120,400 L400,420 M400,420 L550,750 M400,420 L650,250" />
-          <path class="m-road-major" d="M30,280 Q100,350 150,480" /> <g id="markersLayer"></g>
+          <path class="m-road-main" d="M220,445 L450,445 M450,445 L580,780 M450,445 L650,280" /> <path class="m-road-sec" d="M60,340 Q130,400 180,550 Q220,600 350,700" /> <g id="markersLayer"></g>
         </svg>
       </div>
-      
       <div id="mapPopup" class="map-popup">
         <span class="popup-close" onclick="closePopup()">×</span>
         <div id="popupContent"></div>
@@ -115,60 +108,68 @@ a:hover{text-decoration:underline}
   </section>
 
   <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Rechercher un contact, une administration..." onkeyup="filterCards()">
+    <input type="text" id="searchInput" placeholder="Rechercher un contact..." onkeyup="filterCards()">
   </div>
 
   <div class="grid" id="contactGrid">
     <div class="card" data-cat="adm">
       <span class="cat-tag cat-adm">Administration</span>
-      <h3>Préfecture de Marseille</h3>
-      <p>📍 Bd Paul Peytral, 13006</p>
+      <h3>Préfecture des Bouches-du-Rhône</h3>
+      <p>📍 Bd Paul Peytral, 13006 Marseille</p>
       <p>📞 04 84 35 40 00</p>
-      <a href="#" onclick="focusSite('prefecture')">Voir sur le plan →</a>
+      <a href="javascript:void(0)" onclick="focusSite('prefecture')">Localiser sur le plan →</a>
     </div>
-
     <div class="card" data-cat="adm">
-      <span class="cat-tag cat-adm">Éducation</span>
+      <span class="cat-tag cat-adm">Scolarité</span>
       <h3>My Partner School</h3>
-      <p>📍 Rue de l'École, Marseille</p>
+      <p>📍 Secteur Marseille Centre</p>
       <p>📞 04 91 XX XX XX</p>
-      <a href="#" onclick="focusSite('ecole')">Voir sur le plan →</a>
+      <a href="javascript:void(0)" onclick="focusSite('ecole')">Localiser sur le plan →</a>
     </div>
-
     <div class="card" data-cat="san">
       <span class="cat-tag cat-san">Santé</span>
       <h3>Hôpital de la Timone</h3>
-      <p>📍 Rue Saint-Pierre, 13005</p>
+      <p>📍 264 Rue Saint-Pierre, 13005</p>
       <p>📞 04 91 38 00 00</p>
-      <a href="#" onclick="focusSite('timone')">Voir sur le plan →</a>
+      <a href="javascript:void(0)" onclick="focusSite('timone')">Localiser sur le plan →</a>
     </div>
   </div>
 </div>
 
 <script>
+// Coordonnées ajustées pour le nouveau plan SVG
 const SITES = {
-  "prefecture": { x: 420, y: 430, name: "Préfecture", info: "Bd Paul Peytral", color: "#0e71b8" },
-  "ecole": { x: 450, y: 460, name: "My Partner School", info: "Quartier Castellane", color: "#1b5e20" },
-  "timone": { x: 550, y: 440, name: "Hôpital La Timone", info: "Secteur 5e", color: "#c2185b" },
-  "gare": { x: 430, y: 350, name: "Gare Saint-Charles", info: "Arrivées TGV", color: "#e65100" }
+  "prefecture": { x: 460, y: 455, name: "Préfecture", info: "Bd Paul Peytral", color: "#0e71b8" },
+  "ecole": { x: 480, y: 490, name: "My Partner School", info: "Centre-ville", color: "#1b5e20" },
+  "timone": { x: 580, y: 460, name: "Hôpital La Timone", info: "13005 Marseille", color: "#c2185b" }
 };
 
 let scale = 1, tx = 0, ty = 0;
 const outer = document.getElementById('mapOuter');
 const container = document.getElementById('mapContainer');
 
-// Fonctions de Manipulation de la Carte
 function updateTransform() {
   container.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
 }
 
+// Zoom molette
 outer.addEventListener('wheel', e => {
   e.preventDefault();
-  const delta = e.deltaY > 0 ? 0.8 : 1.2;
-  scale = Math.min(Math.max(scale * delta, 0.5), 10);
+  const delta = e.deltaY > 0 ? 0.85 : 1.15;
+  const newScale = Math.min(Math.max(scale * delta, 0.5), 8);
+  
+  // Zoom centré sur la souris
+  const rect = outer.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+  
+  tx -= (mx - tx) * (newScale / scale - 1);
+  ty -= (my - ty) * (newScale / scale - 1);
+  scale = newScale;
   updateTransform();
 });
 
+// Drag & Pan
 let isDragging = false, startX, startY;
 outer.addEventListener('mousedown', e => {
   isDragging = true;
@@ -182,17 +183,16 @@ window.addEventListener('mousemove', e => {
   ty = e.clientY - startY;
   updateTransform();
 });
-
 window.addEventListener('mouseup', () => isDragging = false);
 
-// Initialisation
 function init() {
   const layer = document.getElementById('markersLayer');
   for (let id in SITES) {
     const s = SITES[id];
     const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
     g.setAttribute("class", "mkr");
-    g.onclick = (e) => showPopup(id, e);
+    g.setAttribute("data-id", id);
+    g.onclick = (e) => { e.stopPropagation(); showPopup(id, s.x, s.y); };
     
     const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     c.setAttribute("cx", s.x); c.setAttribute("cy", s.y); c.setAttribute("r", 10);
@@ -203,12 +203,13 @@ function init() {
   }
 }
 
-function showPopup(id, e) {
+function showPopup(id, x, y) {
   const s = SITES[id];
   const popup = document.getElementById('mapPopup');
   document.getElementById('popupContent').innerHTML = `<strong>${s.name}</strong><br>${s.info}`;
   popup.style.display = 'block';
-  popup.style.left = "20px"; popup.style.top = "20px"; // Position fixe ou relative au clic
+  // Positionnement simple
+  popup.style.left = "15px"; popup.style.top = "15px";
 }
 
 function focusSite(id) {
@@ -217,7 +218,7 @@ function focusSite(id) {
   tx = (outer.offsetWidth/2) - (s.x * scale);
   ty = (outer.offsetHeight/2) - (s.y * scale);
   updateTransform();
-  showPopup(id);
+  showPopup(id, s.x, s.y);
 }
 
 function filterCards() {
