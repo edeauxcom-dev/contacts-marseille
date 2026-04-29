@@ -4,7 +4,6 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Contacts utiles à Marseille – My Partner School</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
 :root{
   --blue:#0e71b8;--blue-dk:#0a5a96;--blue-lt:#e8f4fd;
@@ -20,52 +19,42 @@ a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
 .pw{max-width:1160px;margin:0 auto;padding:0 0 3rem}
 
-/* HEADER */
 .hdr{background:linear-gradient(135deg,#0e71b8 0%,#0a5a96 100%);padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;position:relative;overflow:hidden}
 .hdr::before{content:'';position:absolute;right:-50px;top:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.05);pointer-events:none}
-.hdr-logo{flex-shrink:0}
 .hdr-logo img{height:50px;width:auto;object-fit:contain;display:block}
 .hdr-title{flex:1}
 .hdr-title h1{font-size:1.35rem;font-weight:800;color:#fff;line-height:1.25;margin-bottom:.2rem}
 .hdr-title p{color:rgba(255,255,255,.72);font-size:.85rem}
 .btn-print{display:inline-flex;align-items:center;gap:.45rem;background:#fff;color:var(--blue);font-weight:700;font-size:.83rem;padding:.55rem 1.1rem;border-radius:30px;border:none;cursor:pointer;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.18);position:relative;z-index:2;font-family:'Segoe UI',Arial,sans-serif}
-.btn-print:hover{box-shadow:0 6px 20px rgba(0,0,0,.22)}
 
-/* INTRO */
 .intro{background:var(--blue-lt);border-left:5px solid var(--blue);padding:.9rem 1.8rem;margin:1.4rem 1.4rem 0;border-radius:0 var(--r-s) var(--r-s) 0;font-size:.9rem;color:var(--txt-md)}
 
-/* SECTION */
 .sec{display:flex;align-items:center;gap:.7rem;padding:0 1.4rem;margin:2rem 0 .9rem}
 .sec-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
 .sec h2{font-size:1.05rem;font-weight:700;color:var(--txt-dk)}
 .badge{margin-left:auto;background:var(--grey-bd);color:var(--txt-lt);font-size:.72rem;font-weight:700;padding:.18rem .6rem;border-radius:20px}
 
-/* GRID */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;padding:0 1.4rem}
 
-/* CARD */
 .card{background:#fff;border:1px solid var(--grey-bd);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
 .card:hover{box-shadow:var(--sh-h);transform:translateY(-3px)}
 .card-top{padding:1.1rem 1.2rem .8rem;border-bottom:1px solid var(--grey-bd);display:flex;align-items:flex-start;gap:.85rem}
-.logo-box{width:56px;height:50px;border-radius:var(--r-s);border:1px solid var(--grey-bd);background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;padding:4px;font-size:1.5rem}
-.logo-box img{max-width:100%;max-height:100%;object-fit:contain}
+.logo-badge{width:56px;height:50px;border-radius:var(--r-s);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;font-size:.7rem;color:#fff;text-align:center;line-height:1.2;letter-spacing:-.3px}
 .title-block h3{font-size:.9rem;font-weight:700;color:var(--txt-dk);line-height:1.3;margin-bottom:.2rem}
 .tag{font-size:.67rem;font-weight:700;padding:.13rem .5rem;border-radius:20px;display:inline-block;text-transform:uppercase;letter-spacing:.03em}
 .te{background:#e3f2fd;color:#0d47a1}.ts{background:#e8f5e9;color:#1b5e20}
 .th{background:#fce4ec;color:#880e4f}.tp{background:#f3e5f5;color:#4a148c}.tm{background:#fff3e0;color:#e65100}
 .card-body{padding:.8rem 1.2rem;display:flex;flex-direction:column;gap:.38rem;flex:1}
 .row{display:flex;align-items:flex-start;gap:.5rem;font-size:.8rem;color:var(--txt-md);line-height:1.45}
-.ri{flex-shrink:0;margin-top:1px;opacity:.7}
+.ri{flex-shrink:0;margin-top:1px}
 .row a{color:var(--blue);font-weight:600;word-break:break-all}
 .row strong{color:var(--txt-dk);font-weight:600;font-size:.76rem}
 .card-foot{padding:.6rem 1.2rem;border-top:1px solid var(--grey-bd);background:var(--grey-bg)}
 .map-btn{display:inline-flex;align-items:center;gap:.3rem;background:var(--blue);color:#fff;font-size:.73rem;font-weight:700;padding:.3rem .85rem;border-radius:20px;text-decoration:none;border:none;cursor:pointer;font-family:'Segoe UI',Arial,sans-serif}
 .map-btn:hover{background:var(--blue-dk);color:#fff;text-decoration:none}
 
-/* Section icon bg */
 .sie{background:#e3f2fd}.sis{background:#e8f5e9}.sih{background:#fce4ec}.sip{background:#f3e5f5}.sim{background:#fff3e0}
 
-/* MDS */
 .mds-wrap{margin:0 1.4rem;background:#fff;border:1px solid var(--grey-bd);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
 .mds-info{display:flex;gap:.7rem;align-items:flex-start;padding:.9rem 1.3rem;background:var(--blue-lt);border-bottom:1px solid var(--grey-bd);font-size:.83rem;color:var(--txt-md)}
 table{width:100%;border-collapse:collapse}
@@ -76,10 +65,10 @@ tbody tr:last-child{border-bottom:none}
 tbody tr:hover{background:var(--blue-lt)}
 tbody td{padding:.5rem .9rem;font-size:.79rem;color:var(--txt-md);vertical-align:middle}
 tbody td:first-child{font-weight:700;color:var(--txt-dk)}
-.t-btn{display:inline-flex;align-items:center;gap:.25rem;background:var(--blue);color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;text-decoration:none;white-space:nowrap;border:none;cursor:pointer;font-family:'Segoe UI',Arial,sans-serif}
-.t-btn:hover{background:var(--blue-dk);color:#fff;text-decoration:none}
+.t-btn{display:inline-flex;align-items:center;gap:.25rem;background:var(--blue);color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:20px;border:none;cursor:pointer;font-family:'Segoe UI',Arial,sans-serif}
+.t-btn:hover{background:var(--blue-dk);color:#fff}
 
-/* CARTE */
+/* CARTE SVG interactive */
 .map-sec{margin:2rem 1.4rem 0;border-radius:var(--r);overflow:hidden;border:1px solid var(--grey-bd);box-shadow:var(--sh)}
 .map-hdr{background:linear-gradient(135deg,var(--blue),var(--blue-dk));padding:.9rem 1.4rem}
 .map-hdr h2{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:.15rem}
@@ -87,14 +76,37 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
 .map-legend{background:#fff;padding:.6rem 1.2rem;display:flex;flex-wrap:wrap;gap:.75rem;border-bottom:1px solid var(--grey-bd)}
 .leg{display:flex;align-items:center;gap:.35rem;font-size:.74rem;color:var(--txt-md);font-weight:600}
 .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-#map{height:480px;width:100%;display:block}
 
-/* FOOTER */
+.map-wrap{position:relative;background:#d4e8f5;overflow:hidden;user-select:none}
+.map-wrap svg.map-svg{width:100%;height:auto;display:block}
+.marker path{transition:filter .15s}
+.marker:hover path{filter:brightness(1.2) drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+.marker.active path{filter:brightness(1.3) drop-shadow(0 3px 8px rgba(0,0,0,.5))}
+
+/* Popup */
+.map-popup{
+  position:absolute;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 8px 30px rgba(0,0,0,.2);
+  padding:0;
+  min-width:220px;
+  max-width:280px;
+  pointer-events:auto;
+  z-index:100;
+  display:none;
+  border:1px solid var(--grey-bd);
+  overflow:hidden;
+}
+.popup-head{padding:.6rem .9rem;font-weight:700;font-size:.85rem;color:#fff;line-height:1.3}
+.popup-body{padding:.65rem .9rem;font-size:.78rem;color:var(--txt-md);display:flex;flex-direction:column;gap:.3rem;line-height:1.45}
+.popup-body a{color:var(--blue);font-weight:600}
+.popup-close{position:absolute;top:.4rem;right:.5rem;background:rgba(255,255,255,.25);border:none;color:#fff;font-size:.9rem;cursor:pointer;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;line-height:1;font-weight:700}
+.popup-close:hover{background:rgba(255,255,255,.4)}
+
 .footer{text-align:center;padding:1.3rem;font-size:.75rem;color:var(--txt-lt);margin-top:2rem;border-top:1px solid var(--grey-bd)}
 
-/* PRINT */
 @media print{
-  body{background:#fff}
   .btn-print,.map-sec{display:none}
   .card{break-inside:avoid;border:1px solid #ccc;box-shadow:none;transform:none}
   .grid{grid-template-columns:1fr 1fr;gap:.6rem}
@@ -107,7 +119,6 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
   .hdr-title h1{font-size:1.05rem}
   .grid{grid-template-columns:1fr;padding:0 1rem}
   .sec,.intro,.mds-wrap,.map-sec{margin-left:1rem;margin-right:1rem}
-  #map{height:320px}
 }
 </style>
 </head>
@@ -115,9 +126,7 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
 <div class="pw">
 
 <header class="hdr">
-  <div class="hdr-logo">
-    <img src="data:image/png;base64,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" alt="My Partner School"/>
-  </div>
+  <div class="hdr-logo"><img src="data:image/png;base64,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" alt="My Partner School"/></div>
   <div class="hdr-title">
     <h1>📍 Contacts utiles à Marseille</h1>
     <p>Interlocuteurs officiels pour les apprentis (18 ans et +)</p>
@@ -126,7 +135,7 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
 </header>
 
 <div class="intro">
-  💡 Vous trouverez ci-dessous les organismes officiels présents à Marseille pour vous accompagner dans votre vie d'apprenti : emploi, démarches sociales, santé, soutien psychologique. Cliquez sur <strong>« 📍 Localiser »</strong> sur chaque carte pour zoomer sur la structure dans la carte interactive.
+  💡 Vous trouverez ci-dessous les organismes officiels présents à Marseille pour vous accompagner dans votre vie d'apprenti : emploi, démarches sociales, santé, soutien psychologique. Cliquez sur <strong>« 📍 Localiser »</strong> sur chaque carte pour afficher la structure sur la carte interactive.
 </div>
 
 <!-- EMPLOI -->
@@ -136,10 +145,9 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
   <span class="badge">2 structures</span>
 </div>
 <div class="grid">
-
   <div class="card">
     <div class="card-top">
-      <div class="logo-box"><img src="https://www.missionlocalemarseille.fr/wp-content/uploads/2023/10/MLM_logo-Blanc-Fond-gris-1.png" alt="" onerror="this.style.display='none';this.parentElement.textContent='🏢'"/></div>
+      <div class="logo-badge" style="background:#0d47a1">Mission<br>Locale</div>
       <div class="title-block"><h3>Mission Locale de Marseille</h3><span class="tag te">Emploi &amp; insertion</span></div>
     </div>
     <div class="card-body">
@@ -150,10 +158,9 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
     </div>
     <div class="card-foot"><button class="map-btn" onclick="flyTo(0)">📍 Localiser sur la carte</button></div>
   </div>
-
   <div class="card">
     <div class="card-top">
-      <div class="logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Logo_France_travail_2023.svg/1200px-Logo_France_travail_2023.svg.png" alt="" onerror="this.style.display='none';this.parentElement.textContent='🏛️'"/></div>
+      <div class="logo-badge" style="background:#003189">France<br>Travail</div>
       <div class="title-block"><h3>France Travail – Porte d'Aix</h3><span class="tag te">Emploi &amp; formation</span></div>
     </div>
     <div class="card-body">
@@ -163,7 +170,6 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
     </div>
     <div class="card-foot"><button class="map-btn" onclick="flyTo(1)">📍 Localiser sur la carte</button></div>
   </div>
-
 </div>
 
 <!-- AIDE SOCIALE -->
@@ -173,10 +179,9 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
   <span class="badge">2 structures</span>
 </div>
 <div class="grid">
-
   <div class="card">
     <div class="card-top">
-      <div class="logo-box"><img src="https://www.ccasdemarseille.fr/wp-content/uploads/2021/04/logo-CCAS-Marseille-1.png" alt="" onerror="this.style.display='none';this.parentElement.textContent='🏠'"/></div>
+      <div class="logo-badge" style="background:#1b5e20">CCAS</div>
       <div class="title-block"><h3>CCAS de Marseille</h3><span class="tag ts">Action sociale</span></div>
     </div>
     <div class="card-body">
@@ -188,10 +193,9 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
     </div>
     <div class="card-foot"><button class="map-btn" onclick="flyTo(2)">📍 Localiser sur la carte</button></div>
   </div>
-
   <div class="card">
     <div class="card-top">
-      <div class="logo-box"><img src="https://www.caf.fr/sites/default/files/2022-06/logo-CAF-2021.png" alt="" onerror="this.style.display='none';this.parentElement.textContent='💶'"/></div>
+      <div class="logo-badge" style="background:#005f9e">CAF</div>
       <div class="title-block"><h3>CAF des Bouches-du-Rhône</h3><span class="tag ts">Prestations familiales</span></div>
     </div>
     <div class="card-body">
@@ -202,7 +206,6 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
     </div>
     <div class="card-foot"><button class="map-btn" onclick="flyTo(3)">📍 Localiser sur la carte</button></div>
   </div>
-
 </div>
 
 <!-- SANTE -->
@@ -212,10 +215,9 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
   <span class="badge">3 structures</span>
 </div>
 <div class="grid">
-
   <div class="card">
     <div class="card-top">
-      <div class="logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Planning_familial_france_logo.svg/1200px-Planning_familial_france_logo.svg.png" alt="" onerror="this.style.display='none';this.parentElement.textContent='💊'"/></div>
+      <div class="logo-badge" style="background:#c62828">PF 13</div>
       <div class="title-block"><h3>Planning Familial 13</h3><span class="tag th">Santé sexuelle &amp; droits</span></div>
     </div>
     <div class="card-body">
@@ -226,10 +228,9 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
     </div>
     <div class="card-foot"><button class="map-btn" onclick="flyTo(4)">📍 Localiser sur la carte</button></div>
   </div>
-
   <div class="card">
     <div class="card-top">
-      <div class="logo-box"><img src="https://addictions-france.org/wp-content/uploads/2021/11/logo-Association-Addictions-France.png" alt="" onerror="this.style.display='none';this.parentElement.textContent='🔵'"/></div>
+      <div class="logo-badge" style="background:#880e4f">Add.<br>France</div>
       <div class="title-block"><h3>CSAPA – Addictions France</h3><span class="tag th">Addictions</span></div>
     </div>
     <div class="card-body">
@@ -240,10 +241,9 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
     </div>
     <div class="card-foot"><button class="map-btn" onclick="flyTo(5)">📍 Localiser sur la carte</button></div>
   </div>
-
   <div class="card">
     <div class="card-top">
-      <div class="logo-box"><img src="https://www.addiction-mediterranee.fr/img/logo-admed.png" alt="" onerror="this.style.display='none';this.parentElement.textContent='🌊'"/></div>
+      <div class="logo-badge" style="background:#1565c0">Add.<br>Méd.</div>
       <div class="title-block"><h3>Addiction Méditerranée</h3><span class="tag th">Addictions &amp; prévention</span></div>
     </div>
     <div class="card-body">
@@ -255,7 +255,6 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
     </div>
     <div class="card-foot"><button class="map-btn" onclick="flyTo(6)">📍 Localiser sur la carte</button></div>
   </div>
-
 </div>
 
 <!-- PSY -->
@@ -265,10 +264,9 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
   <span class="badge">1 structure</span>
 </div>
 <div class="grid">
-
   <div class="card">
     <div class="card-top">
-      <div class="logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Logo_UNAFAM.png/1200px-Logo_UNAFAM.png" alt="" onerror="this.style.display='none';this.parentElement.textContent='💜'"/></div>
+      <div class="logo-badge" style="background:#4a148c">UNA<br>FAM</div>
       <div class="title-block"><h3>UNAFAM 13</h3><span class="tag tp">Soutien psychique</span></div>
     </div>
     <div class="card-body">
@@ -279,7 +277,6 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
     </div>
     <div class="card-foot"><button class="map-btn" onclick="flyTo(7)">📍 Localiser sur la carte</button></div>
   </div>
-
 </div>
 
 <!-- MDS -->
@@ -289,7 +286,7 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
   <span class="badge">12 antennes</span>
 </div>
 <div class="mds-wrap">
-  <div class="mds-info">ℹ️&nbsp;<span>Les MDS accueillent toute personne en difficulté : <strong>financière, logement, famille, aide alimentaire</strong> ou accès aux droits. Rendez-vous à l'antenne de votre arrondissement.</span></div>
+  <div class="mds-info">ℹ️&nbsp;<span>Les MDS accueillent toute personne en difficulté : <strong>financière, logement, famille, aide alimentaire</strong> ou accès aux droits.</span></div>
   <table>
     <thead><tr><th>Antenne</th><th>Adresse</th><th>Téléphone</th><th>Carte</th></tr></thead>
     <tbody>
@@ -309,11 +306,11 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
   </table>
 </div>
 
-<!-- CARTE LEAFLET -->
+<!-- CARTE SVG INTERACTIVE -->
 <div class="map-sec">
   <div class="map-hdr">
     <h2>🗺️ Carte interactive – tous les points d'accompagnement</h2>
-    <p>Cliquez sur un marqueur ou utilisez les boutons « Localiser » sur chaque carte.</p>
+    <p>Cliquez sur un marqueur pour afficher les informations. Utilisez les boutons « Localiser » sur chaque carte.</p>
   </div>
   <div class="map-legend">
     <span class="leg"><span class="dot" style="background:#0d47a1"></span>Emploi &amp; formation</span>
@@ -322,7 +319,125 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
     <span class="leg"><span class="dot" style="background:#4a148c"></span>Soutien psychologique</span>
     <span class="leg"><span class="dot" style="background:#e65100"></span>MDS</span>
   </div>
-  <div id="map"></div>
+  <div class="map-wrap" id="mapWrap">
+    <svg class="map-svg" viewBox="0 0 860 540" xmlns="http://www.w3.org/2000/svg" id="mapSvg">
+      <!-- Fond -->
+      <rect width="860" height="540" fill="#cfe0f0"/>
+      <!-- Terre (forme simplifiée de la région marseillaise) -->
+      <path d="M0,0 L860,0 L860,540 L0,540 Z" fill="#e8ede3"/>
+      <!-- Mer au sud -->
+      <path d="M0,430 Q150,400 280,410 Q380,418 430,405 Q500,390 560,400 Q650,415 860,395 L860,540 L0,540 Z" fill="#a8c8e8"/>
+      <!-- Vieux-Port -->
+      <ellipse cx="390" cy="340" rx="22" ry="12" fill="#7aaed4" opacity="0.8"/>
+      <text x="395" y="358" font-family="Segoe UI,Arial" font-size="9" fill="#445" text-anchor="middle">Vieux-Port</text>
+      <!-- Axes routiers principaux -->
+      <line x1="0" y1="250" x2="860" y2="250" stroke="#c8bfa0" stroke-width="2.5" opacity="0.5"/>
+      <line x1="390" y1="0" x2="390" y2="540" stroke="#c8bfa0" stroke-width="2" opacity="0.4"/>
+      <line x1="0" y1="350" x2="860" y2="350" stroke="#c8bfa0" stroke-width="1.5" opacity="0.35"/>
+      <line x1="200" y1="0" x2="200" y2="540" stroke="#c8bfa0" stroke-width="1.5" opacity="0.3"/>
+      <!-- Label ville -->
+      <text x="370" y="328" font-family="Segoe UI,Arial" font-size="13" fill="#334" font-weight="700" text-anchor="middle">Marseille</text>
+      <!-- Marqueurs -->
+      
+  <g class="marker" data-id="0" transform="translate(483,326)" onclick="showPopup(0)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#0d47a1" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="1" transform="translate(456,283)" onclick="showPopup(1)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#0d47a1" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="2" transform="translate(486,270)" onclick="showPopup(2)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#1b5e20" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="3" transform="translate(573,452)" onclick="showPopup(3)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#1b5e20" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="4" transform="translate(471,274)" onclick="showPopup(4)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#880e4f" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="5" transform="translate(436,302)" onclick="showPopup(5)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#880e4f" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="6" transform="translate(464,292)" onclick="showPopup(6)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#880e4f" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="7" transform="translate(501,324)" onclick="showPopup(7)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#4a148c" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="8" transform="translate(439,273)" onclick="showPopup(8)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="9" transform="translate(451,259)" onclick="showPopup(9)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="10" transform="translate(486,257)" onclick="showPopup(10)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="11" transform="translate(510,277)" onclick="showPopup(11)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="12" transform="translate(505,337)" onclick="showPopup(12)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="13" transform="translate(535,444)" onclick="showPopup(13)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="14" transform="translate(621,361)" onclick="showPopup(14)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="15" transform="translate(687,309)" onclick="showPopup(15)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="16" transform="translate(567,143)" onclick="showPopup(16)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="17" transform="translate(533,160)" onclick="showPopup(17)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="18" transform="translate(421,180)" onclick="showPopup(18)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+  <g class="marker" data-id="19" transform="translate(349,71)" onclick="showPopup(19)" style="cursor:pointer">
+    <path d="M0-22 C-8-22-14-16-14-8 C-14 2 0 14 0 14 C0 14 14 2 14-8 C14-16 8-22 0-22Z" fill="#e65100" stroke="#fff" stroke-width="2"/>
+    <circle cx="0" cy="-8" r="5" fill="#fff"/>
+  </g>
+      <!-- Boussole -->
+      <g transform="translate(830,30)">
+        <circle r="20" fill="white" opacity="0.88"/>
+        <text x="0" y="-7" text-anchor="middle" font-size="11" font-weight="800" fill="#c0392b">N</text>
+        <polygon points="0,-17 3,-5 0,-9 -3,-5" fill="#c0392b"/>
+        <polygon points="0,17 3,5 0,9 -3,5" fill="#777"/>
+      </g>
+      <!-- Attribution -->
+      <text x="6" y="536" font-family="Arial" font-size="9" fill="#999">Carte schématique – positions approximatives</text>
+    </svg>
+    <!-- Popup -->
+    <div class="map-popup" id="mapPopup">
+      <div class="popup-head" id="popupHead">
+        <button class="popup-close" onclick="closePopup()">✕</button>
+        <span id="popupTitle"></span>
+      </div>
+      <div class="popup-body" id="popupBody"></div>
+    </div>
+  </div>
 </div>
 
 <footer class="footer">
@@ -330,54 +445,90 @@ tbody td:first-child{font-weight:700;color:var(--txt-dk)}
 </footer>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-(function(){
-  var sites=[
-    {lat:43.2875,lng:5.3823,label:"Mission Locale de Marseille",detail:"23 av. de Corinthe, 13006<br>📞 04 91 19 01 20",c:"#0d47a1"},
-    {lat:43.2990,lng:5.3760,label:"France Travail – Porte d'Aix",detail:"1 place Jules Guesde, 13002<br>📞 3949",c:"#0d47a1"},
-    {lat:43.3025,lng:5.3830,label:"CCAS de Marseille",detail:"50 rue de Ruffi, 13003<br>📞 04 86 94 45 01",c:"#1b5e20"},
-    {lat:43.2535,lng:5.4032,label:"CAF Marseille Sud",detail:"215 chemin de Gibbes, 13014<br>📞 3230",c:"#1b5e20"},
-    {lat:43.3015,lng:5.3795,label:"Planning Familial 13",detail:"106 bd National, 13003<br>📞 04 91 91 09 39",c:"#880e4f"},
-    {lat:43.2940,lng:5.3715,label:"CSAPA – Addictions France",detail:"24A rue Fort Notre-Dame, 13001<br>📞 04 91 84 75 12",c:"#880e4f"},
-    {lat:43.2965,lng:5.3780,label:"Addiction Méditerranée",detail:"7 square Stalingrad, 13001<br>📞 04 96 11 57 66",c:"#880e4f"},
-    {lat:43.2880,lng:5.3865,label:"UNAFAM 13",detail:"28 rue Léon Bérard, 13005<br>📞 06 43 84 67 22",c:"#4a148c"},
-    {lat:43.3018,lng:5.3720,label:"MDS Pressensé",detail:"15 place de la Joliette, 13002<br>📞 04 13 31 59 17",c:"#e65100"},
-    {lat:43.3055,lng:5.3748,label:"MDS Littoral",detail:"18 av. Robert Schuman, 13002<br>📞 04 13 31 76 75",c:"#e65100"},
-    {lat:43.3060,lng:5.3830,label:"MDS Belle de Mai",detail:"24 rue Jobin, 13003<br>📞 04 13 31 65 10",c:"#e65100"},
-    {lat:43.3005,lng:5.3887,label:"MDS Chartreux",detail:"21 rue Pierre Roche, 13004<br>📞 04 13 31 67 13",c:"#e65100"},
-    {lat:43.2845,lng:5.3875,label:"MDS Saint Sébastien",detail:"66A rue St-Sébastien, 13006<br>📞 04 13 31 72 72",c:"#e65100"},
-    {lat:43.2558,lng:5.3945,label:"MDS Bonneveine",detail:"35 bd Baptistin Cayol, 13008<br>📞 04 13 31 77 60",c:"#e65100"},
-    {lat:43.2780,lng:5.4145,label:"MDS Pont de Vivaux",detail:"250 bd Mireille Lauze, 13010<br>📞 04 13 31 53 13",c:"#e65100"},
-    {lat:43.2920,lng:5.4298,label:"MDS Saint Marcel",detail:"37 rue des Crottes, 13011<br>📞 04 13 31 75 01",c:"#e65100"},
-    {lat:43.3365,lng:5.4018,label:"MDS Le Nautile",detail:"29 av. de Frais Vallon, 13013<br>📞 04 13 31 57 77",c:"#e65100"},
-    {lat:43.3320,lng:5.3940,label:"MDS Vallon de Malpassé",detail:"15 rue Raymonde Martin, 13013<br>📞 04 13 31 06 50",c:"#e65100"},
-    {lat:43.3268,lng:5.3678,label:"MDS Les Flamants",detail:"14 av. Alexandre Ansaldi, 13014<br>📞 04 13 31 62 30",c:"#e65100"},
-    {lat:43.3560,lng:5.3512,label:"MDS La Viste",detail:"43 avenue de la Viste, 13015<br>📞 04 13 31 64 03",c:"#e65100"}
-  ];
-  var map=L.map('map',{scrollWheelZoom:false}).setView([43.2965,5.3698],12);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    maxZoom:18
-  }).addTo(map);
-  function mkIcon(color){
-    var svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 42"><path d="M16 0C7.163 0 0 7.163 0 16c0 11.435 14 26 16 26s16-14.565 16-26C32 7.163 24.837 0 16 0z" fill="'+color+'" stroke="#fff" stroke-width="2"/><circle cx="16" cy="16" r="6" fill="#fff"/></svg>';
-    return L.divIcon({html:'<div style="width:28px;height:36px">'+svg+'</div>',iconSize:[28,36],iconAnchor:[14,36],popupAnchor:[0,-38],className:''});
-  }
-  var markers=sites.map(function(s){
-    return L.marker([s.lat,s.lng],{icon:mkIcon(s.c)})
-      .addTo(map)
-      .bindPopup('<div style="font-family:Segoe UI,Arial,sans-serif;min-width:170px"><strong style="font-size:.9rem;color:#1a2a3a">'+s.label+'</strong><br><span style="font-size:.8rem;color:#3a5068;line-height:1.5">'+s.detail+'</span></div>',{maxWidth:250});
-  });
-  window.flyTo=function(i){
-    document.getElementById('map').scrollIntoView({behavior:'smooth',block:'center'});
-    setTimeout(function(){
-      map.flyTo([sites[i].lat,sites[i].lng],16,{duration:1.2});
-      markers[i].openPopup();
-    },400);
-  };
-  setTimeout(function(){map.invalidateSize();},600);
-})();
+var sites = [
+  {id:0,label:'Mission Locale de Marseille',addr:'23 av. de Corinthe, 13006',tel:'04 91 19 01 20',url:"https://missionlocalemarseille.fr",c:'#0d47a1'},
+  {id:1,label:'France Travail – Porte d\'Aix',addr:'1 place Jules Guesde, 13002',tel:'3949',url:"https://www.francetravail.fr",c:'#0d47a1'},
+  {id:2,label:'CCAS de Marseille',addr:'50 rue de Ruffi, 13003',tel:'04 86 94 45 01',url:"https://ccas-marseille.fr",c:'#1b5e20'},
+  {id:3,label:'CAF Marseille Sud',addr:'215 chemin de Gibbes, 13014',tel:'3230',url:"https://www.caf.fr",c:'#1b5e20'},
+  {id:4,label:'Planning Familial 13',addr:'106 bd National, 13003',tel:'04 91 91 09 39',url:"https://leplanning13.org",c:'#880e4f'},
+  {id:5,label:'CSAPA – Addictions France',addr:'24A rue Fort Notre-Dame, 13001',tel:'04 91 84 75 12',url:"https://addictions-france.org",c:'#880e4f'},
+  {id:6,label:'Addiction Méditerranée',addr:'7 sq. Stalingrad, 13001',tel:'04 96 11 57 66',url:"https://www.addiction-mediterranee.fr",c:'#880e4f'},
+  {id:7,label:'UNAFAM 13',addr:'28 rue Léon Bérard, 13005',tel:'06 43 84 67 22',url:"https://www.unafam.org",c:'#4a148c'},
+  {id:8,label:'MDS Pressensé',addr:'15 place de la Joliette, 13002',tel:'04 13 31 59 17',url:"",c:'#e65100'},
+  {id:9,label:'MDS Littoral',addr:'18 av. Robert Schuman, 13002',tel:'04 13 31 76 75',url:"",c:'#e65100'},
+  {id:10,label:'MDS Belle de Mai',addr:'24 rue Jobin, 13003',tel:'04 13 31 65 10',url:"",c:'#e65100'},
+  {id:11,label:'MDS Chartreux',addr:'21 rue Pierre Roche, 13004',tel:'04 13 31 67 13',url:"",c:'#e65100'},
+  {id:12,label:'MDS Saint Sébastien',addr:'66A rue St-Sébastien, 13006',tel:'04 13 31 72 72',url:"",c:'#e65100'},
+  {id:13,label:'MDS Bonneveine',addr:'35 bd Baptistin Cayol, 13008',tel:'04 13 31 77 60',url:"",c:'#e65100'},
+  {id:14,label:'MDS Pont de Vivaux',addr:'250 bd Mireille Lauze, 13010',tel:'04 13 31 53 13',url:"",c:'#e65100'},
+  {id:15,label:'MDS Saint Marcel',addr:'37 rue des Crottes, 13011',tel:'04 13 31 75 01',url:"",c:'#e65100'},
+  {id:16,label:'MDS Le Nautile',addr:'29 av. de Frais Vallon, 13013',tel:'04 13 31 57 77',url:"",c:'#e65100'},
+  {id:17,label:'MDS Vallon de Malpassé',addr:'15 rue Raymonde Martin, 13013',tel:'04 13 31 06 50',url:"",c:'#e65100'},
+  {id:18,label:'MDS Les Flamants',addr:'14 av. Alexandre Ansaldi, 13014',tel:'04 13 31 62 30',url:"",c:'#e65100'},
+  {id:19,label:'MDS La Viste',addr:'43 avenue de la Viste, 13015',tel:'04 13 31 64 03',url:"",c:'#e65100'},
+];
+
+function showPopup(id) {
+  var s = sites[id];
+  var wrap = document.getElementById('mapWrap');
+  var popup = document.getElementById('mapPopup');
+  var head = document.getElementById('popupHead');
+  var body = document.getElementById('popupBody');
+
+  // Highlight marker
+  document.querySelectorAll('.marker').forEach(function(m) { m.classList.remove('active'); });
+  var activeMarker = document.querySelector('.marker[data-id="'+id+'"]');
+  if (activeMarker) activeMarker.classList.add('active');
+
+  head.style.background = s.c;
+  document.getElementById('popupTitle').textContent = s.label;
+
+  var html = '<div>📍 ' + s.addr + '</div>';
+  html += '<div>📞 <a href="tel:' + s.tel.replace(/\s/g,'') + '">' + s.tel + '</a></div>';
+  if (s.url) html += '<div>🌐 <a href="' + s.url + '" target="_blank" rel="noopener">' + s.url.replace('https://','') + '</a></div>';
+  body.innerHTML = html;
+
+  // Position popup near marker
+  var svg = document.getElementById('mapSvg');
+  var rect = wrap.getBoundingClientRect();
+  var svgRect = svg.getBoundingClientRect();
+  var scaleX = svgRect.width / 860;
+  var scaleY = svgRect.height / 540;
+
+  // Get marker position from transform
+  var marker = document.querySelector('.marker[data-id="'+id+'"]');
+  var transform = marker.getAttribute('transform');
+  var coords = transform.match(/translate\((\d+),(\d+)\)/);
+  var mx = parseInt(coords[1]) * scaleX;
+  var my = parseInt(coords[2]) * scaleY;
+
+  var popW = 240, popH = 120;
+  var left = mx + 20;
+  var top = my - 60;
+  if (left + popW > svgRect.width) left = mx - popW - 10;
+  if (top < 0) top = my + 20;
+
+  popup.style.left = left + 'px';
+  popup.style.top = top + 'px';
+  popup.style.display = 'block';
+}
+
+function closePopup() {
+  document.getElementById('mapPopup').style.display = 'none';
+  document.querySelectorAll('.marker').forEach(function(m) { m.classList.remove('active'); });
+}
+
+function flyTo(id) {
+  var mapSec = document.querySelector('.map-sec');
+  mapSec.scrollIntoView({behavior:'smooth', block:'center'});
+  setTimeout(function() { showPopup(id); }, 500);
+}
+
+// Fermer popup en cliquant à côté
+document.getElementById('mapWrap').addEventListener('click', function(e) {
+  if (!e.target.closest('.marker') && !e.target.closest('.map-popup')) closePopup();
+});
 </script>
 </body>
 </html>
