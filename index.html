@@ -19,171 +19,181 @@ a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
 .pw{max-width:1160px;margin:0 auto;padding:0 0 3rem}
 
-/* Header */
-.hdr{background:linear-gradient(135deg,#0e71b8 0%,#0a5a96 100%);padding:2rem;display:flex;justify-content:space-between;align-items:center;color:#fff;box-shadow:0 2px 15px rgba(0,0,0,0.1)}
-.hdr-logo img{height:55px;filter:brightness(0) invert(1)}
-.hdr-title h1{font-size:1.6rem;font-weight:800;margin-bottom:0.2rem}
-.hdr-title p{opacity:0.9;font-size:0.95rem}
+.hdr{background:linear-gradient(135deg,#0e71b8 0%,#0a5a96 100%);padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;right:-50px;top:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.05);pointer-events:none}
+.hdr-logo img{height:50px;width:auto;object-fit:contain;display:block}
+.hdr-title{flex:1}
+.hdr-title h1{font-size:1.35rem;font-weight:800;color:#fff;line-height:1.25;margin-bottom:.2rem}
+.hdr-title p{color:rgba(255,255,255,.72);font-size:.85rem}
+.btn-print{display:inline-flex;align-items:center;gap:.45rem;background:#fff;color:var(--blue);font-weight:700;font-size:.83rem;padding:.55rem 1.1rem;border-radius:30px;border:none;cursor:pointer;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.18);position:relative;z-index:2;font-family:'Segoe UI',Arial,sans-serif}
 
-/* Intro */
-.intro{background:var(--blue-lt);border-left:5px solid var(--blue);padding:1.2rem 2rem;margin:2rem 1.4rem;border-radius:0 var(--r-s) var(--r-s) 0;font-size:0.95rem}
+.intro{background:var(--blue-lt);border-left:5px solid var(--blue);padding:.9rem 1.8rem;margin:1.4rem 1.4rem 0;border-radius:0 var(--r-s) var(--r-s) 0;font-size:.9rem;color:var(--txt-md)}
+.sec{display:flex;align-items:center;gap:.7rem;padding:0 1.4rem;margin:2rem 0 .9rem}
+.sec-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
+.sec h2{font-size:1.05rem;font-weight:700;color:var(--txt-dk)}
+.badge{margin-left:auto;background:var(--grey-bd);color:var(--txt-lt);font-size:.72rem;font-weight:700;padding:.18rem .6rem;border-radius:20px}
 
-/* Carte Section */
-.map-sec{margin:0 1.4rem 2.5rem;background:#fff;border-radius:var(--r);border:1px solid var(--grey-bd);box-shadow:var(--sh);overflow:hidden;position:relative}
-.map-hdr{background:var(--blue);padding:0.8rem 1.4rem;display:flex;justify-content:space-between;align-items:center;color:#fff}
-.map-controls{display:flex;gap:8px}
-.map-ctrl-btn{background:rgba(255,255,255,0.2);border:1px solid #fff;color:#fff;width:32px;height:32px;border-radius:6px;cursor:pointer;font-weight:bold;display:flex;align-items:center;justify-content:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;padding:0 1.4rem}
+.card{background:#fff;border:1px solid var(--grey-bd);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+.card:hover{box-shadow:var(--sh-h);transform:translateY(-3px)}
+.card-top{padding:1.1rem 1.2rem .8rem;border-bottom:1px solid var(--grey-bd);display:flex;align-items:flex-start;gap:.85rem}
 
-.map-outer{height:550px;background:#e3f2fd;position:relative;overflow:hidden;cursor:grab}
+.logo-icon{width:54px;height:48px;border-radius:var(--r-s);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-icon svg{width:32px;height:32px}
+
+.title-block h3{font-size:.9rem;font-weight:700;color:var(--txt-dk);line-height:1.3;margin-bottom:.2rem}
+.tag{font-size:.67rem;font-weight:700;padding:.13rem .5rem;border-radius:20px;display:inline-block;text-transform:uppercase;letter-spacing:.03em}
+.te{background:#e3f2fd;color:#0d47a1}.ts{background:#e8f5e9;color:#1b5e20}
+.th{background:#fce4ec;color:#880e4f}.tp{background:#f3e5f5;color:#4a148c}.tm{background:#fff3e0;color:#e65100}
+
+.card-body{padding:.8rem 1.2rem;display:flex;flex-direction:column;gap:.38rem;flex:1}
+.row{display:flex;align-items:flex-start;gap:.5rem;font-size:.8rem;color:var(--txt-md);line-height:1.45}
+.ri{flex-shrink:0;margin-top:1px}
+.row strong{color:var(--txt-dk);font-weight:600;font-size:.76rem}
+.card-foot{padding:.6rem 1.2rem;border-top:1px solid var(--grey-bd);background:var(--grey-bg)}
+.map-btn{display:inline-flex;align-items:center;gap:.35rem;background:var(--blue);color:#fff;font-size:.73rem;font-weight:700;padding:.3rem .85rem;border-radius:20px;border:none;cursor:pointer;font-family:'Segoe UI',Arial,sans-serif;transition:background .15s}
+.map-btn:hover{background:var(--blue-dk);color:#fff}
+.map-btn svg{width:13px;height:13px;flex-shrink:0}
+
+.mds-wrap{margin:0 1.4rem;background:#fff;border:1px solid var(--grey-bd);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
+.mds-info{display:flex;gap:.7rem;align-items:flex-start;padding:.9rem 1.3rem;background:var(--blue-lt);border-bottom:1px solid var(--grey-bd);font-size:.83rem;color:var(--txt-md)}
+table{width:100%;border-collapse:collapse}
+thead tr{background:var(--blue)}
+thead th{color:#fff;font-size:.76rem;font-weight:700;padding:.55rem .9rem;text-align:left;letter-spacing:.03em}
+tbody tr{border-bottom:1px solid var(--grey-bd)}
+tbody td{padding:.5rem .9rem;font-size:.79rem;color:var(--txt-md);vertical-align:middle}
+tbody td:first-child{font-weight:700;color:var(--txt-dk)}
+
+/* CARTE MISE À JOUR */
+.map-sec{margin:2rem 1.4rem 0;border-radius:var(--r);overflow:hidden;border:1px solid var(--grey-bd);box-shadow:var(--sh)}
+.map-hdr{background:linear-gradient(135deg,var(--blue),var(--blue-dk));padding:.9rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.map-hdr h2{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:.1rem}
+.map-hdr p{color:rgba(255,255,255,.72);font-size:.78rem}
+.map-controls{display:flex;gap:.5rem}
+.map-ctrl-btn{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:1.1rem;width:32px;height:32px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:0.2s}
+
+.map-outer{overflow:hidden;position:relative;background:#cfe6f7;height:500px;cursor:grab}
 .map-outer:active{cursor:grabbing}
-#mapContainer{width:100%;height:100%;transform-origin:0 0;will-change:transform}
+.map-inner{position:absolute;top:0;left:0;transform-origin:0 0;will-change:transform}
 
-/* SVG Marseille Design */
-.m-water{fill:#cfe6f7}
+/* Style du tracé Marseille */
 .m-land{fill:#ffffff;stroke:#cbd5e0;stroke-width:1}
-.m-road-main{fill:none;stroke:#cbd5e0;stroke-width:2.5;stroke-linecap:round}
-.m-road-sec{fill:none;stroke:#e2e8f0;stroke-width:1.2}
+.m-road{fill:none;stroke:#e2e8f0;stroke-width:1.5}
+.m-road-main{fill:none;stroke:#cbd5e0;stroke-width:3}
 .mkr{cursor:pointer;transition:transform 0.2s}
 .mkr:hover{transform:scale(1.2)}
-.mkr circle{stroke:#fff;stroke-width:1.5;filter:drop-shadow(0 2px 3px rgba(0,0,0,0.2))}
+.mkr circle{stroke:#fff;stroke-width:1.5;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.2))}
+.mkr.active circle{stroke:orange;stroke-width:3}
 
-/* Popup */
-.map-popup{position:absolute;background:#fff;padding:12px;border-radius:10px;box-shadow:var(--sh-h);display:none;z-index:100;width:240px;border:1px solid var(--blue);font-size:0.9rem}
+.map-popup{position:absolute;background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.15);display:none;z-index:100;width:240px;border:1px solid var(--blue);font-size:0.85rem}
 .popup-close{float:right;cursor:pointer;font-weight:bold;color:var(--txt-lt)}
 
-/* Search & Contacts */
-.search-bar{margin:0 1.4rem 2rem;position:relative}
-.search-bar input{width:100%;padding:1rem 1.5rem 1rem 3rem;border-radius:30px;border:1.4px solid var(--grey-bd);font-size:1rem;outline:none}
-
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem;padding:0 1.4rem}
-.card{background:#fff;border-radius:var(--r);border:1px solid var(--grey-bd);padding:1.4rem;transition:0.3s;position:relative}
-.card:hover{transform:translateY(-3px);box-shadow:var(--sh-h);border-color:var(--blue)}
-.cat-tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:700;text-transform:uppercase;margin-bottom:0.8rem}
-.cat-adm{background:#e3f2fd;color:#0e71b8}
-.cat-san{background:#fce4ec;color:#c2185b}
+.footer{text-align:center;padding:1.3rem;font-size:.75rem;color:var(--txt-lt);margin-top:2rem;border-top:1px solid var(--grey-bd)}
 </style>
 </head>
 <body>
-
 <div class="pw">
-  <header class="hdr">
-    <div class="hdr-title">
-      <h1>My Partner School</h1>
-      <p>Contacts utiles & Cartographie de Marseille</p>
-    </div>
-    <div class="hdr-logo">
-      <img src="https://mypartnerschool.com/wp-content/uploads/2021/04/Logo-My-Partner-School-Blanc.png" alt="Logo">
-    </div>
-  </header>
 
-  <div class="intro">
-    Cette carte vectorielle est dessinée à partir de données réelles. Elle fonctionne totalement <strong>hors-ligne</strong>.
+<header class="hdr">
+  <div class="hdr-logo"><img src="https://mypartnerschool.com/wp-content/uploads/2021/04/Logo-My-Partner-School-Blanc.png" alt="Logo"></div>
+  <div class="hdr-title">
+    <h1>My Partner School</h1>
+    <p>Contacts utiles & Guide pratique Marseille</p>
   </div>
+  <button class="btn-print" onclick="window.print()">Imprimer le guide</button>
+</header>
 
-  <section class="map-sec">
-    <div class="map-hdr">
-      <span>Plan Vectoriel de Marseille</span>
-      <div class="map-controls">
-        <button class="map-ctrl-btn" onclick="zoom(1.4)">+</button>
-        <button class="map-ctrl-btn" onclick="zoom(0.6)">-</button>
-        <button class="map-ctrl-btn" onclick="resetView()">⟲</button>
-      </div>
-    </div>
-    
-    <div class="map-outer" id="mapOuter">
-      <div id="mapContainer">
-        <svg viewBox="0 0 1000 1000" width="1000" height="1000">
-          <rect width="1000" height="1000" class="m-water"/>
-          <path class="m-land" d="M0,0 H1000 V1000 H450 C400,900 380,820 390,750 C400,650 320,600 250,580 C180,560 150,500 140,430 C135,380 80,350 40,330 V0 Z" />
-          <path class="m-water" d="M140,430 L220,435 L220,460 L145,455 Z" stroke="#cbd5e0" stroke-width="1"/>
-          
-          <path class="m-road-main" d="M220,445 L450,445 M450,445 L580,780 M450,445 L650,280" /> <path class="m-road-sec" d="M60,340 Q130,400 180,550 Q220,600 350,700" /> <g id="markersLayer"></g>
-        </svg>
-      </div>
-      <div id="mapPopup" class="map-popup">
-        <span class="popup-close" onclick="closePopup()">×</span>
-        <div id="popupContent"></div>
-      </div>
-    </div>
-  </section>
+<div class="intro">
+  Ce répertoire regroupe les contacts essentiels pour faciliter vos démarches administratives et votre quotidien à Marseille.
+</div>
 
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Rechercher un contact..." onkeyup="filterCards()">
-  </div>
-
-  <div class="grid" id="contactGrid">
-    <div class="card" data-cat="adm">
-      <span class="cat-tag cat-adm">Administration</span>
-      <h3>Préfecture des Bouches-du-Rhône</h3>
-      <p>📍 Bd Paul Peytral, 13006 Marseille</p>
-      <p>📞 04 84 35 40 00</p>
-      <a href="javascript:void(0)" onclick="focusSite('prefecture')">Localiser sur le plan →</a>
+<section class="map-sec">
+  <div class="map-hdr">
+    <div>
+      <h2>Carte Interactive</h2>
+      <p>Cliquez sur les marqueurs pour voir les infos</p>
     </div>
-    <div class="card" data-cat="adm">
-      <span class="cat-tag cat-adm">Scolarité</span>
-      <h3>My Partner School</h3>
-      <p>📍 Secteur Marseille Centre</p>
-      <p>📞 04 91 XX XX XX</p>
-      <a href="javascript:void(0)" onclick="focusSite('ecole')">Localiser sur le plan →</a>
-    </div>
-    <div class="card" data-cat="san">
-      <span class="cat-tag cat-san">Santé</span>
-      <h3>Hôpital de la Timone</h3>
-      <p>📍 264 Rue Saint-Pierre, 13005</p>
-      <p>📞 04 91 38 00 00</p>
-      <a href="javascript:void(0)" onclick="focusSite('timone')">Localiser sur le plan →</a>
+    <div class="map-controls">
+      <button class="map-ctrl-btn" onclick="zoom(1.3)">+</button>
+      <button class="map-ctrl-btn" onclick="zoom(0.7)">-</button>
+      <button class="map-ctrl-btn" onclick="resetMap()">⟲</button>
     </div>
   </div>
+  <div class="map-outer" id="mapOuter">
+    <div class="map-inner" id="mapInner">
+      <svg viewBox="0 0 1000 1000" width="1000" height="1000">
+        <path class="m-land" d="M0,0 H1000 V1000 H400 C380,900 350,800 370,700 C390,600 300,550 220,530 C150,510 120,450 110,380 C100,300 50,250 0,250 V0 Z" />
+        <path fill="#cfe6f7" d="M110,380 L190,385 L190,415 L115,410 Z" stroke="#cbd5e0" />
+        <path class="m-road-main" d="M190,400 L450,400 M450,400 L600,800 M450,400 L650,200" />
+        <g id="markersLayer"></g>
+      </svg>
+    </div>
+    <div id="mapPopup" class="map-popup">
+      <span class="popup-close" onclick="closePopup()">×</span>
+      <div id="popupContent"></div>
+    </div>
+  </div>
+</section>
+
+<div class="sec">
+  <div class="sec-icon" style="background:#e3f2fd;color:#0e71b8">🏛️</div>
+  <h2>Administrations Principales</h2>
+  <span class="badge">4 CONTACTS</span>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <div class="card-top">
+      <div class="logo-icon te">🏛️</div>
+      <div class="title-block">
+        <h3>Préfecture des Bouches-du-Rhône</h3>
+        <span class="tag te">Étrangers</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">📍 <strong>Adresse :</strong> Place Félix Baret, 13006 Marseille</div>
+      <div class="row">📞 <strong>Tél :</strong> 04 84 35 40 00</div>
+      <div class="row">🌐 <a href="https://www.bouches-du-rhone.gouv.fr" target="_blank">bouches-du-rhone.gouv.fr</a></div>
+    </div>
+    <div class="card-foot">
+      <button class="map-btn" onclick="focusSite('prefecture')">Voir sur le plan</button>
+    </div>
+  </div>
+  </div>
+
+<div class="sec">
+  <div class="sec-icon" style="background:#f3e5f5;color:#4a148c">🏠</div>
+  <h2>Maisons de la Solidarité (MDS)</h2>
+</div>
+<div class="mds-wrap">
+  <table>
+    <thead>
+      <tr><th>Arrondissement</th><th>Adresse</th><th>Téléphone</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Marseille 1er / 2e</td><td>32 Rue de la République</td><td>04 13 31 10 00</td></tr>
+      <tr><td>Marseille 3e</td><td>145 Bd National</td><td>04 13 31 10 20</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  &copy; 2024 My Partner School - Guide Pratique Étudiant - Marseille
+</div>
+
 </div>
 
 <script>
-// Coordonnées ajustées pour le nouveau plan SVG
 const SITES = {
-  "prefecture": { x: 460, y: 455, name: "Préfecture", info: "Bd Paul Peytral", color: "#0e71b8" },
-  "ecole": { x: 480, y: 490, name: "My Partner School", info: "Centre-ville", color: "#1b5e20" },
-  "timone": { x: 580, y: 460, name: "Hôpital La Timone", info: "13005 Marseille", color: "#c2185b" }
+  "prefecture": { x: 450, y: 410, name: "Préfecture", info: "Place Félix Baret", color: "#0e71b8" },
+  "ecole": { x: 430, y: 380, name: "My Partner School", info: "Marseille Centre", color: "#2e7d32" }
 };
 
 let scale = 1, tx = 0, ty = 0;
 const outer = document.getElementById('mapOuter');
-const container = document.getElementById('mapContainer');
+const inner = document.getElementById('mapInner');
 
-function updateTransform() {
-  container.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
-}
-
-// Zoom molette
-outer.addEventListener('wheel', e => {
-  e.preventDefault();
-  const delta = e.deltaY > 0 ? 0.85 : 1.15;
-  const newScale = Math.min(Math.max(scale * delta, 0.5), 8);
-  
-  // Zoom centré sur la souris
-  const rect = outer.getBoundingClientRect();
-  const mx = e.clientX - rect.left;
-  const my = e.clientY - rect.top;
-  
-  tx -= (mx - tx) * (newScale / scale - 1);
-  ty -= (my - ty) * (newScale / scale - 1);
-  scale = newScale;
-  updateTransform();
-});
-
-// Drag & Pan
-let isDragging = false, startX, startY;
-outer.addEventListener('mousedown', e => {
-  isDragging = true;
-  startX = e.clientX - tx;
-  startY = e.clientY - ty;
-});
-
-window.addEventListener('mousemove', e => {
-  if (!isDragging) return;
-  tx = e.clientX - startX;
-  ty = e.clientY - startY;
-  updateTransform();
-});
-window.addEventListener('mouseup', () => isDragging = false);
+function update() { inner.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; }
 
 function init() {
   const layer = document.getElementById('markersLayer');
@@ -191,46 +201,38 @@ function init() {
     const s = SITES[id];
     const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
     g.setAttribute("class", "mkr");
-    g.setAttribute("data-id", id);
-    g.onclick = (e) => { e.stopPropagation(); showPopup(id, s.x, s.y); };
-    
+    g.onclick = (e) => { e.stopPropagation(); showPopup(id); };
     const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    c.setAttribute("cx", s.x); c.setAttribute("cy", s.y); c.setAttribute("r", 10);
+    c.setAttribute("cx", s.x); c.setAttribute("cy", s.y); c.setAttribute("r", 12);
     c.setAttribute("fill", s.color);
-    
     g.appendChild(c);
     layer.appendChild(g);
   }
 }
 
-function showPopup(id, x, y) {
+function showPopup(id) {
   const s = SITES[id];
-  const popup = document.getElementById('mapPopup');
   document.getElementById('popupContent').innerHTML = `<strong>${s.name}</strong><br>${s.info}`;
-  popup.style.display = 'block';
-  // Positionnement simple
-  popup.style.left = "15px"; popup.style.top = "15px";
+  const p = document.getElementById('mapPopup');
+  p.style.display = 'block'; p.style.left = '20px'; p.style.top = '20px';
 }
 
 function focusSite(id) {
-  const s = SITES[id];
-  scale = 3;
+  const s = SITES[id]; scale = 3;
   tx = (outer.offsetWidth/2) - (s.x * scale);
   ty = (outer.offsetHeight/2) - (s.y * scale);
-  updateTransform();
-  showPopup(id, s.x, s.y);
+  update(); showPopup(id);
 }
 
-function filterCards() {
-  let q = document.getElementById('searchInput').value.toLowerCase();
-  document.querySelectorAll('.card').forEach(c => {
-    c.style.display = c.innerText.toLowerCase().includes(q) ? 'block' : 'none';
-  });
-}
-
+function zoom(f) { scale *= f; update(); }
+function resetMap() { scale = 1; tx = 0; ty = 0; update(); closePopup(); }
 function closePopup() { document.getElementById('mapPopup').style.display = 'none'; }
-function zoom(f) { scale *= f; updateTransform(); }
-function resetView() { scale = 1; tx = 0; ty = 0; updateTransform(); }
+
+// Drag & Pan simple
+let isDraging = false, sx, sy;
+outer.onmousedown = (e) => { isDraging = true; sx = e.clientX - tx; sy = e.clientY - ty; };
+window.onmousemove = (e) => { if(isDraging) { tx = e.clientX - sx; ty = e.clientY - sy; update(); } };
+window.onmouseup = () => isDraging = false;
 
 init();
 </script>
