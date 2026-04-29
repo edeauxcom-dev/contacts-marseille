@@ -483,50 +483,109 @@ var SITES = [
   {id:20,label:'My Partner School',addr:'27 bd Charles Moretti, 13014',tel:'',url:'https://www.mypartnerschool.com',c:'#0e71b8'},
 ];
 
+// ── Hover sur les marqueurs ────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.mkr').forEach(function(mk) {
+    var id = parseInt(mk.getAttribute('data-id'));
+    mk.addEventListener('mouseenter', function() { showPopup(id); });
+    mk.addEventListener('mouseleave', function() {
+      // Petit délai pour permettre de déplacer la souris vers le popup
+      setTimeout(function() {
+        var pop = document.getElementById('mapPopup');
+        if (pop && !pop.matches(':hover')) closePopup();
+      }, 200);
+    });
+  });
+  // Garder le popup ouvert quand la souris y est
+  var pop = document.getElementById('mapPopup');
+  if (pop) {
+    pop.addEventListener('mouseleave', function() { closePopup(); });
+  }
+});
+
+
+// ── Popup ──────────────────────────────────────────────────────────────────
+var popup   = document.getElementById('mapPopup');
+var popHead = document.getElementById('popupHead');
+var popTitle= document.getElementById('popupTitle');
+var popBody = document.getElementById('popupBody');
+
 function showPopup(id) {
   var s = SITES[id];
-  document.querySelectorAll('.mkr').forEach(function(m){m.classList.remove('active');});
-  var mk = document.querySelector('[data-id="'+id+'"]');
+  if (!s) return;
+
+  // Highlight marqueur actif
+  document.querySelectorAll('.mkr').forEach(function(m) { m.classList.remove('active'); });
+  var mk = document.querySelector('[data-id="' + id + '"]');
   if (mk) mk.classList.add('active');
 
-  document.getElementById('popupHead').style.background = s.c;
-  document.getElementById('popupTitle').textContent = s.label;
-  var html = '<div>📍 '+s.addr+'</div>';
-  if (s.tel) html += '<div>📞 <a href="tel:'+s.tel.replace(/ /g,'')+'">'+s.tel+'</a></div>';
-  if (s.url) html += '<div>🌐 <a href="'+s.url+'" target="_blank" rel="noopener">'+s.url.replace('https://','').replace('http://','')+'</a></div>';
-  document.getElementById('popupBody').innerHTML = html;
+  // Contenu
+  popHead.style.background = s.c;
+  popTitle.textContent = s.label;
+  var h = '<div>📍 ' + s.addr + '</div>';
+  if (s.tel) h += '<div>📞 <a href="tel:' + s.tel.replace(/ /g,'') + '">' + s.tel + '</a></div>';
+  if (s.url) h += '<div>🌐 <a href="' + s.url + '" target="_blank" rel="noopener">' + s.url.replace('https://','').replace('http://','') + '</a></div>';
+  popBody.innerHTML = h;
 
-  // Position popup près du marqueur
-  var mk2 = document.querySelector('[data-id="'+id+'"]');
-  var rect = mk2.getBoundingClientRect();
-  var popup = document.getElementById('mapPopup');
+  // Afficher d'abord pour mesurer
   popup.style.display = 'block';
-  var pw = popup.offsetWidth || 250, ph = popup.offsetHeight || 110;
-  var left = rect.right + 8;
-  var top  = rect.top + rect.height/2 - ph/2;
-  if (left + pw > window.innerWidth - 10) left = rect.left - pw - 8;
-  if (top < 60) top = rect.bottom + 6;
-  if (top + ph > window.innerHeight - 10) top = rect.top - ph - 6;
-  popup.style.left = left + 'px';
-  popup.style.top  = top  + 'px';
+  popup.style.left = '-9999px';
+  popup.style.top  = '-9999px';
+
+  // Positionner après rendu
+  requestAnimationFrame(function() {
+    var pw = popup.offsetWidth;
+    var ph = popup.offsetHeight;
+    var ww = window.innerWidth;
+    var wh = window.innerHeight;
+
+    var mkRect = mk ? mk.getBoundingClientRect() : null;
+    var left, top;
+
+    if (mkRect) {
+      left = mkRect.right + 10;
+      top  = mkRect.top + mkRect.height / 2 - ph / 2;
+      if (left + pw > ww - 10) left = mkRect.left - pw - 10;
+      if (left < 10) left = 10;
+      if (top < 60) top = mkRect.bottom + 8;
+      if (top + ph > wh - 10) top = wh - ph - 10;
+      if (top < 10) top = 10;
+    } else {
+      left = ww / 2 - pw / 2;
+      top  = wh / 2 - ph / 2;
+    }
+
+    popup.style.left = left + 'px';
+    popup.style.top  = top  + 'px';
+  });
 }
 
 function closePopup() {
-  document.getElementById('mapPopup').style.display = 'none';
-  document.querySelectorAll('.mkr').forEach(function(m){m.classList.remove('active');});
+  popup.style.display = 'none';
+  document.querySelectorAll('.mkr').forEach(function(m) { m.classList.remove('active'); });
 }
 
+// ── flyTo depuis les boutons ───────────────────────────────────────────────
 function flyTo(id) {
-  document.querySelector('.map-sec').scrollIntoView({behavior:'smooth',block:'center'});
-  setTimeout(function(){ showPopup(id); }, 500);
+  var mapSec = document.querySelector('.map-sec');
+  mapSec.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  // Attendre la fin du scroll avant de positionner le popup
+  var attempts = 0;
+  var interval = setInterval(function() {
+    attempts++;
+    showPopup(id);
+    if (attempts >= 3) clearInterval(interval);
+  }, 350);
 }
 
+// ── Fermer en cliquant ailleurs ────────────────────────────────────────────
 document.addEventListener('click', function(e) {
-  if (!e.target.closest('[data-id]') && !e.target.closest('.map-popup') &&
-      !e.target.closest('.map-btn') && !e.target.closest('.t-btn')) {
+  if (!e.target.closest('[data-id]') &&
+      !e.target.closest('#mapPopup') &&
+      !e.target.closest('.map-btn') &&
+      !e.target.closest('.t-btn')) {
     closePopup();
   }
 });
 </script>
 </body>
-</html>
